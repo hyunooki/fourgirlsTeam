@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>ExamWeb</display-name>
+  	<servlet>
+		<servlet-name>Front</servlet-name>
+		<servlet-class>com.exam.FrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Front</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+  
+  
   <!--타일즈 등록시 리스터 (가장 첫줄에 있어야 함) -->
 	<listener>
 		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>

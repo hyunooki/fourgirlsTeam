@@ -18,12 +18,13 @@ import com.exam.test.control.TestControl;
  * MVC 패턴에서의 Control역활.
  * url요청 -> 서블릿.ㄹㄹㄹ
  */
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class FrontController extends HttpServlet{
 	// Map<String, Control> map; Map<String, 인터페이스명> map
 	Map<String, Control> map;
 	
 	public FrontController() {
+		System.out.println("controller create");
 		map = new HashMap<>(); // map 필드의 초기화.
 	}
 	
