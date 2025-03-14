@@ -7,4 +7,20 @@
    SELECT category_name
 	FROM category
  </select>
+ 
+ <select id="login" resultType="member" parameterType="String">
+select user_id,
+        user_name,
+        phone,
+        email,
+        birth,
+        password,
+        user_type,
+        out_type 
+from members 
+where user_id= #{id}
+and password= #{pw}
+
+ </select>
+ 
 </mapper>
