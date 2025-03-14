@@ -8,5 +8,5 @@ public class TestVo {
 	private String prodName;
 	private int categoryNo;
 	private String categoryName;
-	
+	//...커밋테스트중
 }
