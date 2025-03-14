@@ -12,10 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
+import com.exam.payment.control.PaymentsForm;
 import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 import com.exam.test.control.registerControl;
+import com.exam.test.control.ProdListControl;
+
 
 /*
  * MVC 패턴에서의 Control역활.
@@ -27,7 +30,6 @@ public class FrontController extends HttpServlet{
 	Map<String, Control> map;
 	
 	public FrontController() {
-		System.out.println("controller create");
 		map = new HashMap<>(); // map 필드의 초기화.
 	}
 	
@@ -35,14 +37,18 @@ public class FrontController extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 //		map.put("url", "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
 		//영서
-		map.put("/test.do", new TestControl());
-		
+
+		map.put("/test.do", new TestControl() );
+		map.put("/prodList.do", new ProdListControl());
+
 		
 		
 		
 		
 		
 		//현욱
+		map.put("/paymentForm.do", new PaymentsForm());
+		
 		
 		
 		//은애 
