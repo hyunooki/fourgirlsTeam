@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
+import com.exam.payment.control.PaymentsForm;
 import com.exam.test.control.TestControl;
 
 /*
@@ -24,7 +25,6 @@ public class FrontController extends HttpServlet{
 	Map<String, Control> map;
 	
 	public FrontController() {
-		System.out.println("controller create");
 		map = new HashMap<>(); // map 필드의 초기화.
 	}
 	
@@ -38,9 +38,9 @@ public class FrontController extends HttpServlet{
 		
 		
 		
-		
-		
 		//현욱
+		map.put("/paymentForm.do", new PaymentsForm());
+		
 		
 	}
 	
