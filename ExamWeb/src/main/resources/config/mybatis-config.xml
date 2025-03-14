@@ -40,7 +40,8 @@
 	<!-- mapper를 읽어주는 기능 -->
 	<mappers>
 	<mapper resource="com/exam/test/mapper/TestMapper.xml" /> 
-	<mapper resource="com/exam/payment/mapper/PaymentMapper.xml" /> 
+	<mapper resource="com/exam/payment/mapper/PaymentMapper.xml" />
+	
 	</mappers>
 	
   </configuration>

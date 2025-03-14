@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
@@ -23,22 +24,22 @@
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
 								<tr class="table_head">
-									<th class="column-1">사진t</th>
+									<th class="column-3">사진</th>
 									<th class="column-2">상품명</th>
-									<th class="column-3">금액</th>
-									<th class="column-3">삭제</th>
+									<th class="column-2">금액</th>
+									<th class="column-2">삭제</th>
 								</tr>
 								
 							<c:forEach var="info" items="${list }">
-								<tr class="table_row ${info.prodNo}">
-									<td class="column-1">
+								<tr class="table_row " data-id=${info.prodNo}>
+									<td class="column-3">
 										<div class="how-itemcart1">
 											<img src="images/item-cart-04.jpg" alt="IMG">
 										</div>
 									</td>
 									<td class="column-2">${info.prodName}</td>
-									<td class="column-3">${info.price}</td>
-									<td><button class='btn btn-danger' type="button">삭제</button></td>
+									<td class="column-2">${info.price}</td>
+									<td class="column-2"><button class='btn btn-danger' type="button">삭제</button></td>
 								</tr>
 							</c:forEach>
 
@@ -50,13 +51,13 @@
 				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
 						<h4 class="mtext-109 cl2 p-b-30">
-							Cart Totals
+							Payment Totals
 						</h4>
 
 						<div class="flex-w flex-t bor12 p-b-13">
 							<div class="size-208">
 								<span class="mtext-101 cl2">
-				                     상품:
+				                 
 								</span>
 							</div>
 
@@ -65,19 +66,19 @@
 						<div class="flex-w flex-t p-t-27 p-b-33">
 							<div class="size-208">
 								<span class="mtext-101 cl2">
-									Total:
+									
 								</span>
 							</div>
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									$79.65
+									
 								</span>
 							</div>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-							Proceed to Checkout
+						<button type="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" id="paymentBtn">
+							결제
 						</button>
 					</div>
 				</div>
