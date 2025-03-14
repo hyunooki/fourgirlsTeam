@@ -6,24 +6,25 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
 import com.exam.payment.control.DeletePayControl;
+import com.exam.payment.control.DownloadFormControl;
+import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
+import com.exam.test.control.ProdListControl;
 import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 import com.exam.test.control.registerControl;
-import com.exam.test.control.ProdListControl;
 
 
 /*
  * MVC 패턴에서의 Control역활.
- * url요청 -> 서블릿.ㄹㄹㄹ
+ * url요청 -> 서블릿.ㄹㄹㄹf  
  */
 //@WebServlet("*.do")
 public class FrontController extends HttpServlet{
@@ -46,11 +47,11 @@ public class FrontController extends HttpServlet{
 		
 		
 		
-		
 		//현욱
 		map.put("/paymentForm.do", new PaymentsForm());
 		map.put("/deletePay.do", new DeletePayControl());
-		
+		map.put("/paymentClear.do", new PaymentClearControl());
+		map.put("/downloadPage.do", new DownloadFormControl());
 		
 		
 		//은애 

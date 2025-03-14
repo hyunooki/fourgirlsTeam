@@ -12,7 +12,7 @@ import com.exam.common.Control;
 import com.exam.common.DataSource;
 import com.exam.payment.mapper.PaymentMapper;
 
-public class DeletePayControl implements Control {
+public class PaymentClearControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,13 +21,12 @@ public class DeletePayControl implements Control {
 		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
 		
 		int payNo = Integer.parseInt(req.getParameter("payNo"));
-		if(mapper.deletePay(payNo)>0) {
+		
+		if(mapper.paymentUpdate(payNo)>0) {
 			resp.getWriter().print("{\"retCode\" : \"OK\"}");
 		}else{
 			resp.getWriter().print("{\"retCode\" : \"NG\"}");
 		};
-		
-		
 	}
 
 }

@@ -12,4 +12,7 @@ public class PaymentVO {
 	private String prodName;
 	private Date payDate;
 	private String userId;
+	private String pdf;
+	private String categoryName;
+	private int downCnt;
 }

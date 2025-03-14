@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.exam.payment.mapper.PaymentMapper">
+  <!-- 결제항복 -->
      <select id="selectPayment" resultType="com.exam.payment.vo.PaymentVO" parameterType="String">
        SELECT pay_no,
               prod_name,
@@ -16,8 +17,34 @@
         WHERE pay_type='ready'
         AND p.user_id=#{user_id}
      </select>
+     <!-- 결제삭제 -->
       <delete id="deletePay" parameterType="int">
         DELETE FROM payments
         WHERE pay_no = #{payNo}
       </delete>
+      <!-- 결제 갱신 -->
+      <update id="paymentUpdate" parameterType="int">
+        UPDATE payments
+        SET pay_type='success',
+            pay_date = sysdate
+        WHERE pay_no = #{payNo}
+      </update>
+       <select id="downloadList" resultType="com.exam.payment.vo.PaymentVO" parameterType="String">
+   		SELECT pay_no,
+              prod_name,
+              r.price,
+              p.prod_no,
+              pay_date,
+              pay_type,
+              pdf,
+              category_name,
+              down_cnt,
+              p.user_id
+        FROM payments p JOIN products r
+                         ON(p.prod_no = r.prod_no)
+                         JOIN category c
+                         ON(r.category_no = c.category_no)
+        WHERE pay_type='success'
+        AND p.user_id=#{user_id}
+   </select>
   </mapper>
