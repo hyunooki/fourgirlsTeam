@@ -6,4 +6,6 @@ import com.exam.payment.vo.PaymentVO;
 
 public interface PaymentMapper {
 	public List<PaymentVO> selectPayment(String id);
+	
+	public int deletePay(int payNo);
 }

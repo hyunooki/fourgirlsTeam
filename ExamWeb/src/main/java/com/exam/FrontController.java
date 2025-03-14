@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
+import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.PaymentsForm;
 import com.exam.test.control.TestControl;
 
@@ -40,6 +41,7 @@ public class FrontController extends HttpServlet{
 		
 		//현욱
 		map.put("/paymentForm.do", new PaymentsForm());
+		map.put("/deletePay.do", new DeletePayControl());
 		
 		
 	}

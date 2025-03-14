@@ -29,9 +29,11 @@ public class PaymentsForm implements Control {
 		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
 		
 		List<PaymentVO> result = mapper.selectPayment(sessionId);
-		
+		for(PaymentVO vo : result) {
+			System.out.println(vo.getProdName());
+		}
 		req.setAttribute("list", result);
 		
-		req.getRequestDispatcher("/WEB-INF/views/payments/payments.jsp").forward(req, resp);
+		req.getRequestDispatcher("payments/payments.tiles").forward(req, resp);
 	}
 }
