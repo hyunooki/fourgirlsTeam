@@ -16,4 +16,8 @@
         WHERE pay_type='ready'
         AND p.user_id=#{user_id}
      </select>
+      <delete id="deletePay" parameterType="int">
+        DELETE FROM payments
+        WHERE pay_no = #{payNo}
+      </delete>
   </mapper>

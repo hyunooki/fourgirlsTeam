@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
@@ -21,23 +23,24 @@
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
 								<tr class="table_head">
-									<th class="column-1">사진</th>
+									<th class="column-1">사진t</th>
 									<th class="column-2">상품명</th>
 									<th class="column-3">금액</th>
 									<th class="column-3">삭제</th>
 								</tr>
-							<c:forEach var="list" items="${list }">
-								<tr class="table_row">
+								
+							<c:forEach var="info" items="${list }">
+								<tr class="table_row ${info.prodNo}">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="meimages/item-cart-04.jpg" alt="IMG">
+											<img src="images/item-cart-04.jpg" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2">${list.prodName}</td>
-									<td class="column-3">${list.price}</td>
-									<td><button class='btn btn-danger'>삭제</button></td>
+									<td class="column-2">${info.prodName}</td>
+									<td class="column-3">${info.price}</td>
+									<td><button class='btn btn-danger' type="button">삭제</button></td>
 								</tr>
-								</c:forEach>
+							</c:forEach>
 
 							</table>
 						</div>
@@ -81,3 +84,6 @@
 			</div>
 		</div>
 	</form>
+
+	<script src='js/payments/payment.js'></script>
+	
