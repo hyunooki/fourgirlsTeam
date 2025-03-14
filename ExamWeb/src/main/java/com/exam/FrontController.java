@@ -36,7 +36,7 @@ public class FrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-//		map.put("url", "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
+//		map.put("url",  "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
 		//영서
 
 		map.put("/test.do", new TestControl() );
