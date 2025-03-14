@@ -16,8 +16,7 @@ import com.exam.test.control.TestControl;
 
 /*
  * MVC 패턴에서의 Control역활.
- * url요청 -> 서블릿.aaa 
- * 
+ * url요청 -> 서블릿.ㄹㄹㄹ
  */
 @WebServlet("*.do")
 public class FrontController extends HttpServlet{
