@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.exam.common.Control;
 import com.exam.payment.control.PaymentsForm;
 import com.exam.test.control.TestControl;
+import com.exam.test.control.ProdListControl;
 
 /*
  * MVC 패턴에서의 Control역활.
@@ -33,6 +34,7 @@ public class FrontController extends HttpServlet{
 //		map.put("url", "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
 		//영서
 		map.put("/test.do", new TestControl() );
+		map.put("/prodList.do", new ProdListControl());
 		
 		
 		
