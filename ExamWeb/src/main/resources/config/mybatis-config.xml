@@ -12,7 +12,15 @@
 	<!-- mapper.xml에서 주소값을 다 입력하지 않고 알리아스만 사용하여 편의를 제공하는 기능 -->
 	<typeAliases>
 		 <typeAlias alias="test" type="com.exam.test.vo.TestVo" /> 
+
+		 <typeAlias alias="member" type="com.exam.test.vo.MemberVo" /> 
+
+		 <typeAlias alias="prodList" type="com.exam.test.vo.ProdListVo" />
+
 	</typeAliases>
+
+		
+	
 	
 	<!-- 이클립스랑 오라클 연결 -->
 	<environments default="development">

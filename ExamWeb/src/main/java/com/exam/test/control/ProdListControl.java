@@ -11,31 +11,29 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.exam.common.Control;
 import com.exam.common.DataSource;
-import com.exam.test.mapper.TestMapper;
-import com.exam.test.vo.TestVo;
+import com.exam.test.mapper.ProdListMapper;
+import com.exam.test.vo.ProdListVo;
 
-public class TestControl implements Control {
+
+public class ProdListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("실행됨");
-		
 		SqlSession session = DataSource.getInstance().openSession(true);
-		TestMapper mapper = session.getMapper(TestMapper.class);
+		ProdListMapper mapper = session.getMapper(ProdListMapper.class);
 		
-		 List<TestVo> testList = mapper.testList();
+		
+		ProdListVo list =new ProdListVo();
+		 List<ProdListVo> ProdList = mapper.ProdList(list);
 		 
-		 for(TestVo test : testList) {
+		 for(ProdListVo test : ProdList) {
 			 System.out.println(test.getProdName());
 		 }
 		 
-		 req.setAttribute("test", testList);
+		 req.setAttribute("ProdList", ProdList);
 		 
-		 req.getRequestDispatcher("test/test.tiles").forward(req, resp);
-		 
-		 
+		 req.getRequestDispatcher("test/prodList.tiles").forward(req, resp);
+		
 	}
 
 }
-
