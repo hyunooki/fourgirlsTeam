@@ -43,8 +43,8 @@ public class loginhandlecontrol implements Control {
 					session.setAttribute("loginId", id); // attribute활용 ->mvo의 id파라미터를 loginId에 받음
 					//일반사용자 or 관리자 
 					if(member.getUserType().equals("admin")) {
-						//성공적으로 하면 목록화면으로 감 
-						resp.sendRedirect("main.do");
+						
+						resp.sendRedirect("adminmain.do");
 					}
 				else { 
 					resp.sendRedirect("main.do");
