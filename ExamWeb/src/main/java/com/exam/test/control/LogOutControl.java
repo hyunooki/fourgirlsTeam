@@ -17,6 +17,8 @@ public class LogOutControl implements Control {
 		HttpSession session=req.getSession(); 
 		session.invalidate(); 
 		resp.sendRedirect("main.do"); 
+		
+		
 	}
 
 }
