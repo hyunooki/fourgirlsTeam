@@ -11,25 +11,28 @@ removeBtn.forEach(function(item){
 			 let tr = item.parentNode.parentNode;
 			 let payNo =tr.getAttribute('data-id');
 			 //삭제 ajax 실행
-			 payRemove(payNo);
-			 tr.remove();
+				 fetch('deletePay.do?payNo='+payNo)
+					.then(result=> result.json())
+					.then(result=>{
+						if(result.retCode=='OK'){
+							 swal('삭제', "삭제가 완료되었습니다!", "success");
+							 tr.remove();
+							 payInfo();
+							 
+							 
+						}else{
+							swal('삭제', "삭제가 실패하였습니다!", "error");
+							
+						}
+					})
 			 //삭제후 결제금액 함수 다시실행
-			 payInfo()
+			
 		  })
 	  })
 //결제 삭제 함수
 function payRemove(payNo){
-	fetch('deletePay.do?payNo='+payNo)
-	.then(result=> result.json())
-	.then(result=>{
-		if(result.retCode=='OK'){
-			 swal('삭제', "삭제가 완료되었습니다!", "success");
-			 return true;
-		}else{
-			swal('삭제', "삭제가 실패하였습니다!", "error");
-			return false;
-		}
-	})
+	console.log(payNo)
+	
 }
 //총 결제 금액 함수
 function payInfo(){

@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -14,12 +12,14 @@ import java.util.zip.ZipOutputStream;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
 import com.exam.common.Control;
 import com.exam.common.DataSource;
 import com.exam.payment.mapper.PaymentMapper;
+import com.exam.payment.vo.PaymentVO;
 
 public class PdfDownloadControl implements Control {
 
@@ -29,12 +29,20 @@ public class PdfDownloadControl implements Control {
 		SqlSession session = DataSource.getInstance().openSession(true);
 		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
 		
+		//로그인 세션값 가져오기
+		HttpSession session1 = req.getSession(); 
+		 String sessionId = (String)session1.getAttribute("loginId");
 		
 		String[] payNoList = req.getParameterValues("payNo");
 		System.out.println(payNoList[0]);
 		String[] payNoSplitList = payNoList[0].split(",");
+		
+		//payments 객체를 생성해서 param값으로 보낼 준비 
+		PaymentVO param = new PaymentVO();
 		for(String payNo : payNoSplitList) {
-			if(mapper.cntCheck(Integer.parseInt(payNo))>=3) {
+			param.setUserId(sessionId);
+			param.setPayNo(Integer.parseInt(payNo));
+			if(mapper.cntCheck(param)>=3) {
 				resp.getWriter().print("{\"retCode\" : \"LIMIT\"}");
 				return;
 			};
@@ -100,7 +108,9 @@ public class PdfDownloadControl implements Control {
         }
         if (downloadCheck) {
         	for(String payNo : payNoSplitList) {
-    			mapper.cntUpdate(Integer.parseInt(payNo));
+        		param.setUserId(sessionId);
+        		param.setPayNo(Integer.parseInt(payNo));
+    			mapper.cntUpdate(param);
     		}
             resp.getWriter().print("{\"retCode\" : \"OK\"}");
         } else {

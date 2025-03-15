@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.exam.cart.mapper.CartMapper">
+  <!-- 카트리스트 -->
+    <select id="cartList" parameterType="String" resultType="com.exam.cart.vo.CartVO">
+      SELECT cart_no,
+      		 prod_name,
+      		 c.prod_no,
+      		 price,
+       		 image
+	FROM carts c JOIN products p ON (c.prod_no = p.prod_no)
+	WHERE c.user_id = #{userId}
+    </select>
+    
+    <delete id="cartDelete" parameterType="com.exam.cart.vo.CartVO">
+      DELETE FROM carts
+      WHERE cart_no=#{cartNo}
+      AND user_id=#{userId}
+    </delete>
+    
+    <insert id="cartInto" parameterType="com.exam.payment.vo.PaymentVO">
+     <selectKey keyProperty="payNo" resultType="int" order="BEFORE">
+           SELECT MAX(NVL(pay_no,0))+1
+			FROM payments
+       </selectKey> 
+      INSERT INTO payments(pay_no,
+       					   prod_no,
+       					   pay_date,
+       					   user_id,
+       					   pay_type)
+      VALUES(#{payNo},#{prodNo},sysdate,#{userId},'ready')
+    </insert>
+  </mapper>

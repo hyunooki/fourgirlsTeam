@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -22,12 +23,13 @@ public class DownloadFormAjax implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String id= "user01";
+		HttpSession session1 = req.getSession(); 
+		 String sessionId = (String)session1.getAttribute("loginId");
 		resp.setContentType("text/json;charset=utf-8");
 		SqlSession session = DataSource.getInstance().openSession(true);
 		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
 	    
-		List<PaymentVO> result =mapper.downloadList(id);
+		List<PaymentVO> result =mapper.downloadList(sessionId);
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(result);
 		resp.getWriter().print(json);

@@ -19,11 +19,11 @@ public class PaymentsForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/*
-		 * HttpSession session1 = req.getSession(); String sessionId = (String)
-		 * session1.getAttribute("loginId");
-		 */
-		String sessionId = "user01";
+		
+		 HttpSession session1 = req.getSession(); 
+		 String sessionId = (String)session1.getAttribute("loginId");
+		 
+		
 		// TODO Auto-generated method stub
 		SqlSession session = DataSource.getInstance().openSession(true);
 		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
