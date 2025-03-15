@@ -29,6 +29,7 @@ public class loginhandlecontrol implements Control {
 				SqlSession sqlSession=com.exam.common.DataSource.getInstance().openSession(); 
 				TestMapper mapper=sqlSession.getMapper(TestMapper.class); 
 				
+				
 				//MemberDAO mdao = new MemberDAO();
 				//맴버객체 반환 
 				//여기까지 잘받아아옴 

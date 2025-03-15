@@ -14,10 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.exam.common.Control;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.PaymentsForm;
+import com.exam.payment.control.RegisterControl;
 import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
-import com.exam.test.control.registerControl;
+
 import com.exam.test.control.ProdListControl;
 
 
@@ -58,7 +59,7 @@ public class FrontController extends HttpServlet{
 		map.put("/login.do", new loginControl());
 		map.put("/loginhandle.do", new loginhandlecontrol());
 		//회원가입페이지
-		map.put("/register.do", new registerControl());
+		map.put("/register.do", new RegisterControl());
 		
 		
 	}
