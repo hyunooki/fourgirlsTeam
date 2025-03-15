@@ -42,13 +42,13 @@ public class loginhandlecontrol implements Control {
 					HttpSession session = req.getSession();
 					session.setAttribute("loginId", id); // attribute활용 ->mvo의 id파라미터를 loginId에 받음
 					//일반사용자 or 관리자 
-					/*if(mvo.getResponsibility().equals("Admin")) {
+					if(member.getUserType().equals("admin")) {
 						//성공적으로 하면 목록화면으로 감 
-						//resp.sendRedirect("memberList.do");
-					}*/
-				/*	else { 
-					resp.sendRedirect("boardList.do");
-					} */
+						resp.sendRedirect("main.do");
+					}
+				else { 
+					resp.sendRedirect("main.do");
+					} 
 				} else {
 					System.out.println("id,pw 확인");
 				}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
@@ -13,13 +14,22 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
+					<c:choose>
+					<c:when test="${empty loginId }">
+						<a href="login.do" class="flex-c-m trans-04 p-lr-25">
+							로그인 
 						</a>
+						</c:when>
+						<c:otherwise>
+							<a href="logout.do" class="flex-c-m trans-04 p-lr-25">
+							로그아웃 
+						</a>					
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							마이페이지
+						</a>
+						</c:otherwise>
+						</c:choose>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
-						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							USD
