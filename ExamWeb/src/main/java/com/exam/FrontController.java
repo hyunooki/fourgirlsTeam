@@ -13,13 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.exam.common.Control;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloadFormControl;
+import com.exam.payment.control.MainControl;
 import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
+
+import com.exam.payment.control.RegisterControl;
+import com.exam.test.control.TestControl;
+import com.exam.test.control.loginControl;
+import com.exam.test.control.loginhandlecontrol;
+import com.exam.test.control.LogOutControl;
+import com.exam.test.control.ProdListControl;
+
 import com.exam.test.control.ProdListControl;
 import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
-import com.exam.test.control.registerControl;
+
+
 
 
 /*
@@ -57,9 +67,12 @@ public class FrontController extends HttpServlet{
 		//은애 
 		//로그인페이지 이동
 		map.put("/login.do", new loginControl());
+		map.put("/logout.do",new LogOutControl());
 		map.put("/loginhandle.do", new loginhandlecontrol());
+		map.put("/main.do", new MainControl());
 		//회원가입페이지
-		map.put("/register.do", new registerControl());
+		map.put("/register.do", new RegisterControl());
+		
 		
 		
 	}

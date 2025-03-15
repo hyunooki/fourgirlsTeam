@@ -1,4 +1,4 @@
-package com.exam.test.control;
+package com.exam.payment.control;
 
 import java.io.IOException;
 
@@ -8,14 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
 
-public class registerControl implements Control {
+public class RegisterControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		//회원가입 
-		req.getRequestDispatcher("/WEB-INF/views/eun/register.jsp").forward(req, resp);
-
+		// TODO Auto-generated method stub
+		req.getRequestDispatcher("/WEB-INF/views/eun/resister.jsp").forward(req, resp);
 	}
 
 }
