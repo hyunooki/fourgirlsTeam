@@ -13,4 +13,8 @@ public interface PaymentMapper {
 	public int paymentUpdate(int payNo);
 	//다운로드 리스트 등록
 	 public List<PaymentVO> downloadList(String id);
+	 //다운로드횟수 체크
+	 public int cntCheck(int payNo);
+	//다운로드횟수 체크
+     public int cntUpdate(int payNo);
 }
