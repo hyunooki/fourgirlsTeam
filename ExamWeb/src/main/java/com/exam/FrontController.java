@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
 import com.exam.payment.control.DeletePayControl;
-import com.exam.payment.control.DownloadFormControl;
+import com.exam.payment.control.DownloacFormControl;
+import com.exam.payment.control.DownloadFormAjax;
 import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
+import com.exam.payment.control.PdfDownloadControl;
 import com.exam.test.control.ProdListControl;
 import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
@@ -51,7 +53,9 @@ public class FrontController extends HttpServlet{
 		map.put("/paymentForm.do", new PaymentsForm());
 		map.put("/deletePay.do", new DeletePayControl());
 		map.put("/paymentClear.do", new PaymentClearControl());
-		map.put("/downloadPage.do", new DownloadFormControl());
+		map.put("/downloadPage.do", new DownloacFormControl());
+		map.put("/downloadAjax.do", new DownloadFormAjax());
+		map.put("/downloadControl.do", new PdfDownloadControl());
 		
 		
 		//은애 
