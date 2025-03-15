@@ -18,9 +18,11 @@ import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
 
 import com.exam.payment.control.RegisterControl;
+import com.exam.payment.control.RegisterHandle;
 import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
+import com.exam.test.control.AdminMainControl;
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.ProdListControl;
 
@@ -70,8 +72,10 @@ public class FrontController extends HttpServlet{
 		map.put("/logout.do",new LogOutControl());
 		map.put("/loginhandle.do", new loginhandlecontrol());
 		map.put("/main.do", new MainControl());
+		map.put("/adminmain.do", new AdminMainControl());
 		//회원가입페이지
 		map.put("/register.do", new RegisterControl());
+		map.put("/registerhandle.do", new RegisterHandle());
 		
 		
 		
