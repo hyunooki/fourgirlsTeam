@@ -47,4 +47,15 @@
         WHERE pay_type='success'
         AND p.user_id=#{user_id}
    </select>
+    <select id="cntCheck" parameterType="int">
+    	SELECT down_cnt
+		FROM payments
+		WHERE pay_no= #{pay_no}
+    </select>
+    
+    <update id="cntUpdate" parameterType="int">
+    	UPDATE payments
+		SET down_cnt = down_cnt+1
+		WHERE pay_no = #{pay_no}
+    </update>
   </mapper>
