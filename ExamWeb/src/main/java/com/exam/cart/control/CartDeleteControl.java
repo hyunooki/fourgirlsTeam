@@ -1,4 +1,4 @@
-package com.exam.payment.control;
+package com.exam.cart.control;
 
 import java.io.IOException;
 
@@ -9,33 +9,35 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.exam.cart.mapper.CartMapper;
+import com.exam.cart.vo.CartVO;
 import com.exam.common.Control;
 import com.exam.common.DataSource;
-import com.exam.payment.mapper.PaymentMapper;
-import com.exam.payment.vo.PaymentVO;
 
-public class PaymentClearControl implements Control {
+public class CartDeleteControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String cartNo = req.getParameter("cartNo");
+
 		SqlSession session = DataSource.getInstance().openSession(true);
-		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
-		
-		HttpSession session1 = req.getSession(); 
-		 String sessionId = (String)session1.getAttribute("loginId");
-		 
-		 
-		int payNo = Integer.parseInt(req.getParameter("payNo"));
-		PaymentVO param = new PaymentVO();
+		CartMapper mapper = session.getMapper(CartMapper.class);
+
+		HttpSession session1 = req.getSession();
+		String sessionId = (String) session1.getAttribute("loginId");
+
+		CartVO param = new CartVO();
+		param.setCartNo(Integer.parseInt(cartNo));
 		param.setUserId(sessionId);
-		param.setPayNo(payNo);
-		
-		if(mapper.paymentUpdate(param)>0) {
+
+		if (mapper.cartDelete(param) > 0) {
 			resp.getWriter().print("{\"retCode\" : \"OK\"}");
-		}else{
+		  }
+		else {
 			resp.getWriter().print("{\"retCode\" : \"NG\"}");
-		};
+			};
+
 	}
 
 }

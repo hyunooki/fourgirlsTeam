@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.exam.cart.control.CartDeleteControl;
+import com.exam.cart.control.CartFormControl;
+import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
@@ -30,9 +33,8 @@ import com.exam.test.control.loginhandlecontrol;
 
 /*
  * MVC 패턴에서의 Control역활.
- * url요청 -> 서블릿.ㄹㄹㄹf  
+ * url요청 -> 서블릿
  */
-//@WebServlet("*.do")
 public class FrontController extends HttpServlet{
 	// Map<String, Control> map; Map<String, 인터페이스명> map
 	Map<String, Control> map;
@@ -60,6 +62,9 @@ public class FrontController extends HttpServlet{
 		map.put("/downloadPage.do", new DownloacFormControl());
 		map.put("/downloadAjax.do", new DownloadFormAjax());
 		map.put("/downloadControl.do", new PdfDownloadControl());
+		map.put("/cartForm.do", new CartFormControl());
+		map.put("/cartDelete.do", new CartDeleteControl());
+		map.put("/cartTopay.do", new CartToPaymentInsert());
 		
 		
 		//은애 

@@ -23,6 +23,7 @@ var lang_kor = {
     }
 };
 
+
 let table = new DataTable('#example', {
     ajax: {
         url: 'downloadAjax.do',
@@ -59,9 +60,11 @@ let table = new DataTable('#example', {
         { width: 100, targets: 4 },
         { width: 100, targets: 5 }
     ]
-});
+  });
+
 //숨기기
 table.column(6).visible(false);
+
 // 헤더 체크박스 클릭 시 모든 행 체크박스 선택/해제
 document.getElementById('checkall').addEventListener('change', function() {
     // 모든 행의 체크박스 찾기
@@ -130,6 +133,7 @@ function downloadAjax(fileAry=[],payNoAry=[]){
                checkbox.checked = false;
            });
 			 swal('파일', "ZIP 파일이 성공적으로 생성되었습니다!", "success");
+			 table.ajax.reload();
 		}else if(result.retCode=='NG'){
 			swal('error', "ZIP 파일 생성 실패 (파일이 없거나 오류 발생)", "error");
 		}else if(result.retCode=='LIMIT'){
