@@ -201,31 +201,38 @@ header input {
 }
 
 .form-control {
-    width: 300px; /* 입력창 너비를 300px로 고정 */
+    width: 300px; 
 }
 
 .test {
     display: flex;
-    align-items: center; /* 수직 정렬 */
-    justify-content: center; /* 가운데 정렬 */
-    margin-bottom: 10px; /* 입력칸 간격 */
+    align-items: center;
+    justify-content: center; 
+    margin-bottom: 10px; 
 }
 
 #test-label {
-    width: 120px; /* 라벨 크기 조정 */
-    text-align: right; /* 텍스트 오른쪽 정렬 */
+    width: 120px; 
+    text-align: right;
     margin-right: 10px;
 }
 
 .form-group input {
-    width: 250px; /* 입력 필드 크기 제한 */
+    width: 250px; 
 }
 .form-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* 전체 폼을 가운데 정렬 */
+    align-items: center; 
     justify-content: center;
 }
+
+.form-container {
+    margin: 80px auto 0 auto;
+    width: 50%; 
+    text-align: center;
+}
+
 
 .form-group {
     display: flex;
@@ -242,8 +249,8 @@ header input {
 }
 
 .form-group input {
-    width: 250px; /* 입력 필드 크기 조정 */
-    text-align: center; /* 입력 텍스트도 가운데 정렬 */
+    width: 250px;
+    text-align: center;
 }
 
 
@@ -253,7 +260,8 @@ header input {
 
 
 <form action="registerhandle.do" method="post">
-<div class="container form-container">
+<div class="form-container">
+<h3>회원가입</h3>
     <div class="form-group">
         <label for="id">아이디</label>
         <input type="text" class="form-control" id="id" name="id" required="">
@@ -267,7 +275,7 @@ header input {
 
     <div class="form-group">
         <label for="passwordcheck">비밀번호 확인</label>
-        <input type="text" class="form-control" name="" id="passwordcheck" required="비밀번호입력하세요">
+        <input type="password" class="form-control" name="" id="passwordcheck" required="비밀번호입력하세요">
     </div>
 
     <div class="form-group">
@@ -297,14 +305,11 @@ header input {
     </div>
     
 </div>
-<button class="btn btn-primary d-inline-flex align-items-center" type="button">
+<button class="btn btn-primary d-inline-flex align-items-center" type="submit">
     회원가입신청
     <svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right-short"></use></svg>
   </button>
 </form>
 
 
-<script>
-	document
-			.querySelector("body > div.container > main > div.row.g-5 > div.col-md-7.col-lg-8 > form > div.row.g-3")
-</script>
+<script src="js/register.js"></script>
