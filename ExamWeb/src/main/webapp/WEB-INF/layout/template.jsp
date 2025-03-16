@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,6 +165,8 @@
 	</header>
 
 	<!-- Cart -->
+	
+
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
 
@@ -470,6 +473,8 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<c:if test="${!empty sessionScope.userId}">
 	<script src="js/cart/cart.js"></script>
+	</c:if>
 </body>
 </html>

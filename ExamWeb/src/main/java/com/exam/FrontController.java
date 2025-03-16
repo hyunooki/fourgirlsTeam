@@ -20,6 +20,15 @@ import com.exam.payment.control.DownloadFormAjax;
 import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
 import com.exam.payment.control.PdfDownloadControl;
+
+
+import com.exam.payment.control.MainControl;
+import com.exam.payment.control.RegisterControl;
+import com.exam.payment.control.RegisterHandle;
+import com.exam.qna.control.QnaListAjaxControl;
+import com.exam.qna.control.QnaListControl;
+import com.exam.qna.control.QnaPaging;
+
 import com.exam.test.control.TestControl;
 
 import com.exam.test.control.loginControl;
@@ -29,14 +38,20 @@ import com.exam.test.control.AdminMainControl;
 
 
 
+
+
+
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
 import com.exam.test.control.OverlapControl;
 import com.exam.test.control.ProdListControl;
+
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
+
+
 
 
 
@@ -75,6 +90,9 @@ public class FrontController extends HttpServlet{
 		map.put("/cartForm.do", new CartFormControl());
 		map.put("/cartDelete.do", new CartDeleteControl());
 		map.put("/cartTopay.do", new CartToPaymentInsert());
+		map.put("/qnaList.do", new QnaListControl());
+		map.put("/qnaListAjax.do",new QnaListAjaxControl());
+		map.put("/qnaPaging.do",new QnaPaging());
 		
 		
 		//은애 

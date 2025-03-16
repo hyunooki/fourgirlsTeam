@@ -18,7 +18,7 @@ removeBtn.forEach(function(item){
 							 swal('삭제', "삭제가 완료되었습니다!", "success");
 							 tr.remove();
 							 payInfo();
-							 
+							let nullCheck =  document.querySelector('#nullCheck')
 							 
 						}else{
 							swal('삭제', "삭제가 실패하였습니다!", "error");
@@ -29,11 +29,7 @@ removeBtn.forEach(function(item){
 			
 		  })
 	  })
-//결제 삭제 함수
-function payRemove(payNo){
-	console.log(payNo)
-	
-}
+
 //총 결제 금액 함수
 function payInfo(){
 	
@@ -42,14 +38,23 @@ function payInfo(){
 	tr=tr.length-2
 	//상품명에 넣을곳
 	let prodName = document.querySelector('.mtext-101:nth-of-type(1)')
-	//실질적 상품정보
-	let nameInfo = document.querySelector('tr:nth-of-type(2)>td:nth-of-type(2)').innerHTML;
+	
 	if(tr<0){
-		prodName.innerHTML=nameInfo+'상품이 없습니다.'
+		prodName.innerHTML=`상품이 없습니다`
+			let nullCheck =  document.querySelector('#nullCheck')
+				nullCheck.innerHTML=`<tr class="table_row ">
+								<td class="column-2">
+								  결제할 상품이 없습니다.
+								</td>
+								</tr>`    
 	}
 	else if(tr==0){
+		//실질적 상품정보
+		let nameInfo = document.querySelector('tr:nth-of-type(2)>td:nth-of-type(2)').innerHTML;
 		prodName.innerHTML=nameInfo		
 	}else{
+		//실질적 상품정보
+		let nameInfo = document.querySelector('tr:nth-of-type(2)>td:nth-of-type(2)').innerHTML;
 		prodName.innerHTML=nameInfo+'외  '+tr+'개'
 	}
 	
@@ -92,19 +97,18 @@ payBtn.addEventListener('click',function(e){
 	IMP.request_pay({
 		pg: 'tosspay', // PG사 코드
 		pay_method: 'card', // 결제 방식
-		merchant_uid: "pay_" + new Date().getTime(), // 주문번호 (고유해야 함)
+		merchant_uid: "pay_" + new Date().getTime(), // 주문번호
 		name : itemName, // 제품명
         amount : totalPay, // 가격
         buyer_email : 'gusdnr654321@naver.com',
         buyer_name : '신현욱',
         buyer_tel : '010-1234-5678',
-        buyer_addr : '서울특별시 강남구 삼성동',
+        buyer_addr : '대구 수성구 지산동',
         buyer_postcode : '123-456'
 	}, function (rsp) {
 		console.log(rsp);
 		if (rsp.success) {
 			payUpdate();
-			console.log("결제 성공:", rsp);
 			
 			// 결제 성공 후 로직 추가
 		} else {
@@ -120,19 +124,15 @@ function payUpdate(){
 		fetch('paymentClear.do?payNo='+payNo)
 		.then(result=> result.json())
 		.then(result=>{
-		if(result.retCode=='OK'){
-			
+			console.log('erwerwerwerwe')
+			console.log(result)
+		if(result.retCode=='NG'){
+			swal('결제', "결제가 실패하였습니다!", "error");
 		}else{
-			check=false
+			location.href='downloadPage.do'
 		 }
 	  })
 	})
-	console.log(check)
-	if(!check){
-		swal('결제', "결제가 실패하였습니다!", "error");
-	}else{
-		swal('결제', "결제가 완료되었습니다!", "success");
-		location.href='downloadPage.do'
-	}
+	
 }
 

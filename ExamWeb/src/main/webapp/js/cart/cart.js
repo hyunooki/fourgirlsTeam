@@ -24,7 +24,7 @@ cartEvent.addEventListener('click', function () {
                         </div>
                     </li>`;
             }
-            if (cartUl.children.length === 0) {
+            if (cartUl.children.length == 0) {
                 cartUl.innerHTML = '<li>장바구니가 비어있습니다.</li>';
             }
             totalCnt();
