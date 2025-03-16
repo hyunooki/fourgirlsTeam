@@ -26,6 +26,10 @@ import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 import com.exam.test.control.AdminMainControl;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4a900cac184aaed090088fb25d8b7c156f6060a
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.ProdListControl;
 import com.exam.test.control.loginControl;
@@ -78,6 +82,10 @@ public class FrontController extends HttpServlet{
 		//회원가입페이지
 		map.put("/register.do", new RegisterControl());
 		map.put("/registerhandle.do", new RegisterHandle());
+		
+		
+		
+		
 		
 		
 		
