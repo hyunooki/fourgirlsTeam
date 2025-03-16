@@ -27,7 +27,7 @@ public class CartFormControl implements Control {
 		
 		resp.setContentType("text/json;charset=utf-8");
 		HttpSession session1 = req.getSession(); 
-		 String sessionId = (String)session1.getAttribute("loginId");
+		String sessionId = (String)session1.getAttribute("loginId");
 		 
 		 List<CartVO> result = mapper.cartList(sessionId);
 		 

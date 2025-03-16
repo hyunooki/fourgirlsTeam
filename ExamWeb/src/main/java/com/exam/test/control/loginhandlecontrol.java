@@ -35,16 +35,19 @@ public class loginhandlecontrol implements Control {
 				//여기까지 잘받아아옴 
 				System.out.printf("아이디:"+id+"비밀번호:"+pw+"\n");
 				MemberVo member = mapper.login(id,pw);
-				
+				//세션에 userType지정하기
+				String userType=member.getUserType(); 
+				System.out.println("userType->"+userType);
 				if (member != null) {
 					//System.out.println("환영합니다" + mvo.getMemberName());
 					// 세션 객체에 로그인 아이디를 저장
 					HttpSession session = req.getSession();
 					session.setAttribute("loginId", id); // attribute활용 ->mvo의 id파라미터를 loginId에 받음
+					session.setAttribute("userType",userType );
 					//일반사용자 or 관리자 
 					if(member.getUserType().equals("admin")) {
 						
-						resp.sendRedirect("adminmain.do");
+						resp.sendRedirect("main.do");
 					}
 				else { 
 					resp.sendRedirect("main.do");

@@ -1,4 +1,4 @@
-package com.exam.payment.control;
+package com.exam.test.control;
 
 import java.io.IOException;
 
@@ -24,12 +24,13 @@ public class RegisterHandle implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (req.getMethod().equals("POST")) {
 			//
+			System.out.println("회원가입 컨트롤러 실행중....");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 			String id = req.getParameter("id");
 			String password = req.getParameter("password");
 			String phone = req.getParameter("phone");
-			String name = req.getParameter("name");
+			String name = req.getParameter("username");
 			String email = req.getParameter("email");
 			String stringbirth = req.getParameter("birth"); // 2000-08-08 이런식임
 
@@ -38,7 +39,7 @@ public class RegisterHandle implements Control {
 
 			try {
 				birth = sdf.parse(stringbirth);
-				System.out.println(birth);
+				System.out.println("변환된 생년월일"+birth);
 			} catch (ParseException e) {
 				e.printStackTrace();
 				System.out.println("회원가입 생년원일 날짜변환실패");
@@ -51,9 +52,18 @@ public class RegisterHandle implements Control {
 			member.setUserName(name);
 			member.setEmail(email);
 			member.setBirth(birth);
+			//회원가입시 기본 userType을 user라고 설정...
 			member.setUserType("user");
 			member.setOutType("no");
 
+			System.out.println("회원가입 정보확인"+member.getEmail()
+					          +member.getOutType()
+					          +member.getPassword()
+					          +member.getPhone()
+					          +member.getUserId()
+					          +member.getUserName()
+					          +member.getUserType());
+			
 			SqlSession sqlSession = com.exam.common.DataSource.getInstance().openSession();
 			RegisterMapper mapper = sqlSession.getMapper(RegisterMapper.class);
 
