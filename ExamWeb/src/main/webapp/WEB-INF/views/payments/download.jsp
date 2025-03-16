@@ -12,37 +12,31 @@ h3{
 .text-center{
      margin-bottom:200px !important;
 }
+
 </style>
 
-<div class="d-flex flex-column align-items-center">
+<div class="d-flex flex-column align-items-center"  style="width:2000px!important;">
   <h3>다운 목록</h3>
-  <table class="table w-75" id="tableMargin">
-   <thead>
-    <tr>
-      <th class="col-1"><input type="checkbox"></th>
-      <th class="col-1">#</th>
-      <th class="col-2">이름</th>
-      <th class="col-2">카테고리</th>
-      <th class="col-3">구매일</th>
-      <th class="col-2">파일명</th>
-      <th class="col-1">다운로드횟수</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="info" items="${list }" varStatus="status">
-      <tr>
-        <td><input type="checkbox"></td>
-        <td>${status.count}</td>
-        <td>${info.prodName}</td>
-        <td>${info.categoryName}</td>
-        <td>${info.payDate}</td>
-        <td>${info.pdf}</td>
-        <td>${info.downCnt}</td>
-      </tr>
-    </c:forEach>
-    </tbody>
-  </table>
+  <table id="example" class="display table w-100" style="width:1200px!important;">
+        <thead>
+            <tr>
+              <th><input type="checkbox" name="checkall" id="checkall"></th>
+                <th>이름</th>
+                <th>카테고리</th>
+                <th>구매일</th>
+                <th>파일명</th>
+                <th>다운로드 횟수</th>
+                <th>결제번호</th>
+            </tr>
+        </thead>
+        
+    </table>
   <div class="text-center">
-    <button class="btn btn-primary">전송</button>
+    <button class="btn btn-primary" id='downloadBtn'>전송</button>
   </div>
+  
 </div>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+<script src ="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src= "https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+<script src='js/payments/download.js'></script>

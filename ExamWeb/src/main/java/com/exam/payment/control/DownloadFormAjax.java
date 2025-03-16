@@ -13,22 +13,24 @@ import com.exam.common.Control;
 import com.exam.common.DataSource;
 import com.exam.payment.mapper.PaymentMapper;
 import com.exam.payment.vo.PaymentVO;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-public class DownloadFormControl implements Control {
+public class DownloadFormAjax implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		String id= "user01";
-		
+		resp.setContentType("text/json;charset=utf-8");
 		SqlSession session = DataSource.getInstance().openSession(true);
 		PaymentMapper mapper = session.getMapper(PaymentMapper.class);
 	    
 		List<PaymentVO> result =mapper.downloadList(id);
-		req.setAttribute("list", result);
-		
-		req.getRequestDispatcher("payments/download.tiles").forward(req, resp);
+		Gson gson = new GsonBuilder().create();
+		String json = gson.toJson(result);
+		resp.getWriter().print(json);
 		
 	}
 
