@@ -29,9 +29,9 @@
 									<th class="column-2">금액</th>
 									<th class="column-2">삭제</th>
 								</tr>
-								
+				
 							<c:forEach var="info" items="${list }">
-								<tr class="table_row " data-id=${info.prodNo}>
+								<tr class="table_row " data-id=${info.payNo}>
 									<td class="column-3">
 										<div class="how-itemcart1">
 											<img src="images/item-cart-04.jpg" alt="IMG">
@@ -42,8 +42,9 @@
 									<td class="column-2"><button class='btn btn-danger' type="button">삭제</button></td>
 								</tr>
 							</c:forEach>
-
 							</table>
+							<div id="nullCheck">
+							</div>
 						</div>
 					</div>
 				</div>

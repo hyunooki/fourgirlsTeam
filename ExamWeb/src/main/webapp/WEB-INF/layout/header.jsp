@@ -95,6 +95,8 @@ body {
 
 
 					<li class="testpaper"><a href="blog.html">시험지등록</a></li>
+					
+					<li class="testpaper"><a href="qnaList.do">QNA</a></li>
 
 
 
@@ -107,12 +109,13 @@ body {
 					class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 					<i class="zmdi zmdi-search"></i>
 				</div>
-
+				<c:if test="${!empty loginId }">
 				<div
 					class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
 					data-notify="2">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
+			</c:if>
 
 				<a href="#"
 					class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
