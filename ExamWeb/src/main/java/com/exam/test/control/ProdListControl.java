@@ -19,20 +19,41 @@ public class ProdListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String name = req.getParameter("name");
+		if(name == null) {
+			name = "";
+		}
+		
+		String asc = req.getParameter("asc");
+		if(asc == null) {
+			asc = "";
+		}
+		System.out.println();
+		String priceAsc = req.getParameter("priceAsc");
+		if(priceAsc == null) {
+			priceAsc = "";
+		}
+		
+		System.out.println("------------------------------");
+		System.out.println(priceAsc);
+		
+		
+	
 		SqlSession session = DataSource.getInstance().openSession(true);
 		ProdListMapper mapper = session.getMapper(ProdListMapper.class);
 		
 		
-		ProdListVo list =new ProdListVo();
-		 List<ProdListVo> ProdList = mapper.ProdList(list);
-		 
-		 for(ProdListVo test : ProdList) {
-			 System.out.println(test.getProdName());
-		 }
-		 
-		 req.setAttribute("ProdList", ProdList);
-		 
-		 req.getRequestDispatcher("test/prodList.tiles").forward(req, resp);
+		ProdListVo item = new ProdListVo();
+		
+		item.setProdName(name);
+		item.setAsc(asc);
+		item.setPriceAsc(priceAsc);
+		List<ProdListVo> prodList = mapper.ProdList(item);
+
+		req.setAttribute("prodList", prodList);
+
+		req.getRequestDispatcher("test/prodList.tiles").forward(req, resp);
 		
 	}
 
