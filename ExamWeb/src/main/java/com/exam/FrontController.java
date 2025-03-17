@@ -16,6 +16,9 @@ import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
 import com.exam.detail.control.DetailControl;
 import com.exam.detail.control.ReplyListControl;
+
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -25,10 +28,19 @@ import com.exam.payment.control.PdfDownloadControl;
 import com.exam.qna.control.QnaListAjaxControl;
 import com.exam.qna.control.QnaListControl;
 import com.exam.qna.control.QnaPaging;
+import com.exam.test.control.TestControl;
+import com.exam.test.control.loginControl;
+import com.exam.test.control.loginhandlecontrol;
+import com.exam.test.control.AdminMainControl;
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
+import com.exam.test.control.MyInfoControl;
+import com.exam.test.control.MyPageControl;
+import com.exam.test.control.NoLoginControl;
 import com.exam.test.control.OverlapControl;
 import com.exam.test.control.ProdListControl;
+import com.exam.test.control.TestControl;
+
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
 import com.exam.test.control.TestControl;
@@ -59,8 +71,9 @@ public class FrontController extends HttpServlet{
 
 		map.put("/test.do", new TestControl() );
 		map.put("/prodList.do", new ProdListControl());
+		map.put("/prodInsertForm.do", new ProdInsertFormControl());
+		map.put("/prodInsert.do", new ProdInsertControl());
 
-		
 		
 		
 		
@@ -84,11 +97,17 @@ public class FrontController extends HttpServlet{
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do",new LogOutControl());
 		map.put("/loginhandle.do", new loginhandlecontrol());
+		//회원정보 존재하지 않을때 새로운 로그인 페이지 
+		map.put("/nologin.do", new NoLoginControl());
 		map.put("/main.do", new MainControl());
 		//회원가입페이지
 		map.put("/register.do", new RegisterControl());
 		map.put("/registerhandle.do", new RegisterHandle());
 		map.put("/checkOverlap.do", new OverlapControl());
+		//마이페이지 
+		map.put("/mypage.do", new MyPageControl()); 
+		map.put("/myinfo.do", new MyInfoControl());
+		
 		
 		
 		
