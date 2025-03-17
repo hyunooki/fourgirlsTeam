@@ -14,6 +14,8 @@ import com.exam.cart.control.CartDeleteControl;
 import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
+import com.exam.detail.control.DetailControl;
+import com.exam.detail.control.ReplyListControl;
 
 import com.exam.test.control.ProdInsertControl;
 import com.exam.test.control.ProdInsertFormControl;
@@ -41,6 +43,7 @@ import com.exam.test.control.TestControl;
 
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
+import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 
@@ -107,6 +110,11 @@ public class FrontController extends HttpServlet{
 		
 		
 		
+		
+		
+		// 민영
+		map.put("/detail.do", new DetailControl()); // 상세
+		map.put("/replyList.do", new ReplyListControl()); // 댓글목록
 		
 		
 		

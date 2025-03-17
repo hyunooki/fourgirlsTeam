@@ -47,7 +47,9 @@
 	<mapper resource="com/exam/payment/mapper/PaymentMapper.xml" />
 	<mapper resource="com/exam/cart/mapper/CartMapper.xml"/>
 	<mapper resource="com/exam/qna/mapper/QnaMapper.xml"/>
-
+	<mapper resource="com/exam/product/mapper/ProductMapper.xml"/>
+	<mapper resource="com/exam/product/mapper/ProductReviewMapper.xml"/>
+	
 	
 	
 
