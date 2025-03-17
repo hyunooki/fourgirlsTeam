@@ -18,4 +18,6 @@ public class ProdListVo {
 	private String categoryNo;
 	private String asc;
 	private String priceAsc;
+	private int page;
+	
 }

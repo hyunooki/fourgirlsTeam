@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- 상품목록 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <div class="bg0 m-t-23 p-b-140">
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52 mt-5">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					
-				</div>
 
 				<div class="flex-w flex-c-m m-tb-10">
 					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
@@ -54,6 +52,8 @@
 									</a>
 								</li>
 
+								
+
 							</ul>
 						</div>
 
@@ -74,27 +74,24 @@
 										내림차순
 									</a>
 								</li>
-												
+
+		
+			
 							</ul>
 						</div>
 
-						<div class="filter-col3 p-r-15 p-b-27">
-							
+						
 
-			
-						</div>
-
-						<div class="filter-col4 p-b-27">
-							
-
-							
-						</div>
+		
 					</div>
 				</div>
 			</div>
 
 			<div class="row isotope-grid">
-			  <c:forEach var="prodList" items="${prodList}"> 
+			
+			
+			
+			<c:forEach var="prodList" items="${prodList}"> 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
@@ -125,9 +122,9 @@
 						</div>
 					</div>
 				</div>
-			</c:forEach>
+              </c:forEach>
 
-	
+
 			</div>
 
 			<!-- Load more -->
@@ -140,8 +137,11 @@
 	</div>
 	
 	<script>
-	    function search(){
-		let inputValue = document.getElementById('inputValue').value;
-		location.href = "http://localhost/ExamWeb/prodList.do?name=" + inputValue;
-	    }
+ function search(){
+			let inputValue = document.getElementById('inputValue').value;
+			location.href = "http://localhost/ExamWeb/prodList.do?name=" + inputValue;
+			
+			
+			
+		} 
 	</script>

@@ -5,39 +5,57 @@
 <mapper namespace="com.exam.test.mapper.ProdListMapper">
 	<select id="ProdList" resultType="prodvo"
 		parameterType="com.exam.test.vo.ProdListVo">
-		SELECT prod_no,
-		prod_name,
-		price,
-		content,
-		create_date,
-		image,
-		pdf,
-		count,
-		user_id,
-		category_no
-		FROM products
-		where prod_name like '%' ||
-		#{prodName} || '%'
+		
+		SELECT a.*
+		FROM (SELECT /*+ INDEX_DESC (r PK_PRODUCTS) */
+						rownum rn,
+						prod_no,
+						prod_name,
+						price,
+						content,
+						create_date,
+						image,
+						pdf,
+						count,
+						user_id,
+						category_no
+			  FROM products
+			  <if test="!prodName.equals('')">
+			  where prod_name like '%' ||#{prodName} || '%'
+			  </if>
 		<choose>
-			<when test="asc == 1">
+			<when test="asc.equals('1'.toString())">
 				ORDER BY prod_name ASC
 			</when>
-			<when test="asc == 0">
+			<when test="asc.equals('0'.toString())">
 				ORDER BY prod_name DESC
 			</when>
-			<when test="priceAsc == 1">
+			<when test="priceAsc.equals('1'.toString())">
 				ORDER BY price ASC
 			</when>
-			<when test="priceAsc == 0">
+			<when test="priceAsc.equals('0'.toString())">
 				ORDER BY price DESC
 			</when>
 		</choose>
-	</select>
+			  ) a
+			WHERE a.rn>(#{page}- 1)*8
+		AND a.rn <![CDATA[<=]]> #{page} *8	</select>
 
 	<insert id="ProdInsert" parameterType="prodvo">
-		insert into products (prod_no, prod_name, content, user_id, price)
-		values((select max(prod_no) +1 from products), #{prodName},#{content},#{userId},#{price})
+		insert into products
+		(prod_no, prod_name, content, user_id, price)
+		values((select
+		max(prod_no) +1 from products),
+		#{prodName},#{content},#{userId},#{price})
 	</insert>
+
+	<select id="totalPage" parameterType="String" resultType="int">
+		SELECT count(1)
+		FROM products
+		<if test="!prodName.equals('')">
+			where prod_name like '%' || #{prodName} || '%'
+		</if>
+	</select>
 
 
 </mapper>

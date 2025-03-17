@@ -19,7 +19,8 @@ public class ProdInsertControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		/* resp.setContentType("text/html;charset=utf-8"); */
+		req.setCharacterEncoding("utf8");
 		String prodName = req.getParameter("prodName");
 		String content = req.getParameter("content");
 		String userId = req.getParameter("userId");

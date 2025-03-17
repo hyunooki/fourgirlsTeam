@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.exam.common.Control;
 import com.exam.common.DataSource;
 import com.exam.test.mapper.ProdListMapper;
+import com.exam.test.vo.PageVO;
 import com.exam.test.vo.ProdListVo;
 
 
@@ -19,7 +20,7 @@ public class ProdListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		String page = req.getParameter("page");
 		String name = req.getParameter("name");
 		if(name == null) {
 			name = "";
@@ -30,13 +31,17 @@ public class ProdListControl implements Control {
 			asc = "";
 		}
 		System.out.println();
+		
 		String priceAsc = req.getParameter("priceAsc");
 		if(priceAsc == null) {
 			priceAsc = "";
 		}
 		
 		System.out.println("------------------------------");
+		System.out.println(asc);
 		System.out.println(priceAsc);
+		
+		
 		
 		
 	
@@ -49,9 +54,14 @@ public class ProdListControl implements Control {
 		item.setProdName(name);
 		item.setAsc(asc);
 		item.setPriceAsc(priceAsc);
+		item.setPage(Integer.parseInt(page));
 		List<ProdListVo> prodList = mapper.ProdList(item);
 
 		req.setAttribute("prodList", prodList);
+		
+		int totalCnt = mapper.totalPage(page);
+		PageVO paging = new PageVO(Integer.parseInt(page), totalCnt);
+		req.setAttribute("paging", paging);
 
 		req.getRequestDispatcher("test/prodList.tiles").forward(req, resp);
 		
