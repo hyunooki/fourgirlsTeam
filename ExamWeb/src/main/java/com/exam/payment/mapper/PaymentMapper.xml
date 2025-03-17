@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.exam.payment.mapper.PaymentMapper">
+  <!-- 결제항복 -->
+     <select id="selectPayment" resultType="com.exam.payment.vo.PaymentVO" parameterType="String">
+       SELECT pay_no,
+              prod_name,
+              r.price,
+              p.prod_no,
+              pay_date,
+              pay_type,
+              p.user_id
+        FROM payments p JOIN products r
+                         ON(p.prod_no = r.prod_no)
+        WHERE pay_type='ready'
+        AND p.user_id=#{user_id}
+     </select>
+     <!-- 결제삭제 -->
+      <delete id="deletePay" parameterType="com.exam.payment.vo.PaymentVO">
+        DELETE FROM payments
+        WHERE pay_no = #{payNo}
+        AND user_id = #{userId}
+      </delete>
+      <!-- 결제 갱신 -->
+      <update id="paymentUpdate" parameterType="com.exam.payment.vo.PaymentVO">
+        UPDATE payments
+        SET pay_type='success',
+            pay_date = sysdate
+        WHERE pay_no = #{payNo}
+        AND user_id = #{userId}
+      </update>
+       <select id="downloadList" resultType="com.exam.payment.vo.PaymentVO" parameterType="String">
+   		SELECT pay_no,
+              prod_name,
+              r.price,
+              p.prod_no,
+              pay_date,
+              pay_type,
+              pdf,
+              category_name,
+              down_cnt,
+              p.user_id
+        FROM payments p JOIN products r
+                         ON(p.prod_no = r.prod_no)
+                         JOIN category c
+                         ON(r.category_no = c.category_no)
+        WHERE pay_type='success'
+        AND p.user_id=#{user_id}
+   </select>
+    <select id="cntCheck" parameterType="com.exam.payment.vo.PaymentVO">
+    	SELECT down_cnt
+		FROM payments
+		WHERE pay_no= #{payNo}
+		AND user_id=#{userId}
+    </select>
+    
+    <update id="cntUpdate" parameterType="com.exam.payment.vo.PaymentVO">
+    	UPDATE payments
+		SET down_cnt = down_cnt+1
+		WHERE pay_no= #{payNo}
+		AND user_id=#{userId}
+    </update>
+  </mapper>

@@ -10,42 +10,98 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.exam.cart.control.CartDeleteControl;
+import com.exam.cart.control.CartFormControl;
+import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
+
 import com.exam.test.control.ProdInsertControl;
 import com.exam.test.control.ProdInsertFormControl;
+import com.exam.payment.control.DeletePayControl;
+import com.exam.payment.control.DownloacFormControl;
+import com.exam.payment.control.DownloadFormAjax;
+import com.exam.payment.control.PaymentClearControl;
+import com.exam.payment.control.PaymentsForm;
+import com.exam.payment.control.PdfDownloadControl;
+import com.exam.qna.control.QnaListAjaxControl;
+import com.exam.qna.control.QnaListControl;
+import com.exam.qna.control.QnaPaging;
+import com.exam.test.control.TestControl;
+import com.exam.test.control.loginControl;
+import com.exam.test.control.loginhandlecontrol;
+import com.exam.test.control.AdminMainControl;
+import com.exam.test.control.LogOutControl;
+import com.exam.test.control.MainControl;
+import com.exam.test.control.OverlapControl;
 import com.exam.test.control.ProdListControl;
 import com.exam.test.control.TestControl;
 
+import com.exam.test.control.RegisterControl;
+import com.exam.test.control.RegisterHandle;
+import com.exam.test.control.loginControl;
+import com.exam.test.control.loginhandlecontrol;
+
+
+
+
+
+
 /*
  * MVC 패턴에서의 Control역활.
- * url요청 -> 서블릿.ㄹㄹㄹ
+ * url요청 -> 서블릿
  */
-//@WebServlet("*.do")
 public class FrontController extends HttpServlet{
 	// Map<String, Control> map; Map<String, 인터페이스명> map
 	Map<String, Control> map;
 	
 	public FrontController() {
-		System.out.println("controller create");
 		map = new HashMap<>(); // map 필드의 초기화.
 	}
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-//		map.put("url", "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
+//		map.put("url",  "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
 		//영서
+
 		map.put("/test.do", new TestControl() );
 		map.put("/prodList.do", new ProdListControl());
 		map.put("/prodInsertForm.do", new ProdInsertFormControl());
 		map.put("/prodInsert.do", new ProdInsertControl());
-		
-		
-		
-		
+
 		
 		
 		
 		//현욱
+		map.put("/paymentForm.do", new PaymentsForm());
+		map.put("/deletePay.do", new DeletePayControl());
+		map.put("/paymentClear.do", new PaymentClearControl());
+		map.put("/downloadPage.do", new DownloacFormControl());
+		map.put("/downloadAjax.do", new DownloadFormAjax());
+		map.put("/downloadControl.do", new PdfDownloadControl());
+		map.put("/cartForm.do", new CartFormControl());
+		map.put("/cartDelete.do", new CartDeleteControl());
+		map.put("/cartTopay.do", new CartToPaymentInsert());
+		map.put("/qnaList.do", new QnaListControl());
+		map.put("/qnaListAjax.do",new QnaListAjaxControl());
+		map.put("/qnaPaging.do",new QnaPaging());
+		
+		
+		//은애 
+		//로그인페이지 이동
+		map.put("/login.do", new loginControl());
+		map.put("/logout.do",new LogOutControl());
+		map.put("/loginhandle.do", new loginhandlecontrol());
+		map.put("/main.do", new MainControl());
+		//회원가입페이지
+		map.put("/register.do", new RegisterControl());
+		map.put("/registerhandle.do", new RegisterHandle());
+		map.put("/checkOverlap.do", new OverlapControl());
+		
+		
+		
+		
+		
+		
 		
 	}
 	
