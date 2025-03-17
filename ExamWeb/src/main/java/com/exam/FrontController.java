@@ -63,10 +63,10 @@ public class FrontController extends HttpServlet{
 //		map.put("url",  "servlet"); // addStudent.do 요청이 들어오면 AddStudentServlet
 		//영서
 
-		map.put("/test.do", new TestControl() );
-		map.put("/prodList.do", new ProdListControl());
-		map.put("/prodInsertForm.do", new ProdInsertFormControl());
-		map.put("/prodInsert.do", new ProdInsertControl());
+		map.put("/test.do", new TestControl() ); // 테스트.
+		map.put("/prodList.do", new ProdListControl()); // 상품목록.
+		map.put("/prodInsertForm.do", new ProdInsertFormControl()); // 등록화면.
+		map.put("/prodInsert.do", new ProdInsertControl()); //등록처리.
 
 		
 		
