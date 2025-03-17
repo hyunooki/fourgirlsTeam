@@ -6,14 +6,15 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
-import com.exam.test.control.TestControl;
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.test.control.ProdListControl;
+import com.exam.test.control.TestControl;
 
 /*
  * MVC 패턴에서의 Control역활.
@@ -35,6 +36,8 @@ public class FrontController extends HttpServlet{
 		//영서
 		map.put("/test.do", new TestControl() );
 		map.put("/prodList.do", new ProdListControl());
+		map.put("/prodInsertForm.do", new ProdInsertFormControl());
+		map.put("/prodInsert.do", new ProdInsertControl());
 		
 		
 		
