@@ -473,8 +473,8 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	<c:if test="${!empty sessionScope.userId}">
-	<script src="js/cart/cart.js"></script>
+	<c:if test="${not empty sessionScope.loginId}">
+    <script src="js/cart/cart.js"></script>
 	</c:if>
 </body>
 </html>

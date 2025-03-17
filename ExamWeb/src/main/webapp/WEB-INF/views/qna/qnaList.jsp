@@ -117,6 +117,9 @@
 			
 		</ul>
 	</nav>
+	<button class='btn btn-primary mt-1' type="button" id="addBtn" >µî·Ï</button>
 	</section>
-	
+	<script>
+	let logId = '${loginId}'
+	</script>
 	<script src="js/qna/qna.js"></script>

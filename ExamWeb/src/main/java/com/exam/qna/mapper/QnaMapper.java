@@ -13,4 +13,14 @@ public interface QnaMapper {
  public int totalCnt(SearchVO param);
  
  public List<QnaVO> categoryList();
+ 
+ public int qnaAdd(QnaVO param);
+ 
+ public QnaVO qnaDetail(int qnaNo);
+ 
+ public int qnaDelete(int qnaNo);
+ 
+ public List<QnaVO> qnaReplyList(QnaVO param);
+
+ public int replyTotalCnt(int param);
 }

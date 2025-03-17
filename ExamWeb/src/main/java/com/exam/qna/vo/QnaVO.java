@@ -14,5 +14,9 @@ public class QnaVO {
 	private String userId;
 	private String categoryName;
 	private String categoryNo;
+	private int qnaRevno;
+    private Date qnaRevdate;
+    private int page;
+    
 
 }

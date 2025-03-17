@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.exam.cart.control.CartDeleteControl;
 import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
@@ -25,22 +24,24 @@ import com.exam.payment.control.DownloadFormAjax;
 import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
 import com.exam.payment.control.PdfDownloadControl;
+import com.exam.qna.control.QnaAddFormControl;
+import com.exam.qna.control.QnaDeleteControl;
+import com.exam.qna.control.QnaDetailForm;
 import com.exam.qna.control.QnaListAjaxControl;
 import com.exam.qna.control.QnaListControl;
 import com.exam.qna.control.QnaPaging;
-import com.exam.test.control.TestControl;
-import com.exam.test.control.loginControl;
-import com.exam.test.control.loginhandlecontrol;
-import com.exam.test.control.AdminMainControl;
+import com.exam.qna.control.QnaReplyListForm;
+import com.exam.qna.control.QnaReplyPageControl;
+import com.exam.qna.control.qnaAddControl;
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
 import com.exam.test.control.MyInfoControl;
 import com.exam.test.control.MyPageControl;
 import com.exam.test.control.NoLoginControl;
 import com.exam.test.control.OverlapControl;
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.test.control.ProdListControl;
-import com.exam.test.control.TestControl;
-
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
 import com.exam.test.control.TestControl;
@@ -90,6 +91,18 @@ public class FrontController extends HttpServlet{
 		map.put("/qnaList.do", new QnaListControl());
 		map.put("/qnaListAjax.do",new QnaListAjaxControl());
 		map.put("/qnaPaging.do",new QnaPaging());
+		map.put("/qnaAddForm.do", new QnaAddFormControl());
+		map.put("/qnaAddControl.do", new qnaAddControl());
+		map.put("/qnaDetail.do", new QnaDetailForm());	
+		map.put("/deleteQna.do", new QnaDeleteControl());
+		map.put("/qnaReplyList.do", new QnaReplyListForm());
+		map.put("/qnaReplyPage.do", new QnaReplyPageControl());
+		
+		
+		
+		
+		
+		
 		
 		
 		//은애 

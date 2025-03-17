@@ -13,7 +13,7 @@ function makeRow(page = 1, category = "", search = "", keyword = "", orderby = "
                 tbody.innerHTML += `
                     <tr class="text-left">
                         <td>${item.qnaNo}</td>
-                        <td>${item.qnaTitle}</td>
+                        <td><a href="qnaDetail.do?qno=${item.qnaNo}">${item.qnaTitle}</a></td>
                         <td>${item.userId}</td>
                         <td>${item.qnaCnt}</td>
                         <td>${item.qnaCreate}</td>
@@ -130,4 +130,12 @@ document.querySelector('input[name="search-product"]').addEventListener('keyup',
 		
   }  
 });
+
+document.querySelector('#addBtn').addEventListener('click',function(e){
+    if(logId.length==0){
+    	swal('등록 실패','로그인 후 사용이 가능합니다','error')
+    	return;
+    }
+    location.href='qnaAddForm.do';
+})
 
