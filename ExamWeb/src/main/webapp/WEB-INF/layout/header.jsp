@@ -117,7 +117,7 @@ body {
 				</div>
 
 
-				 <div
+				 <div></div>
 
 				<c:if test="${!empty loginId }">
 				<div
