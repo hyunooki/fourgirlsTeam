@@ -1,36 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<style>
+.hinext {
+	margin-bottom: 20px;
+	text-align: left;
+	background-color: #ffcc00;
+	color: black;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.bg-light.p-5.rounded {
+	margin-top: 70px;
+}
+
+.btn btn-danger rounded-pill px-3 {
+	text-align: right;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.payment{
+
+ display: flex;
+    justify-content: flex-end;
+}
+
+#payments {
+    width: 50%; 
+    margin: auto;
+}
+
+</style>
 
 
 
 <div class="bg-light p-5 rounded">
-    <h1>안녕하세요</h1>
-    <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s viewport.</p>
-    <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">View navbar docs »</a>
-  </div>
-  
-  <div class="h-100 p-5 bg-light border rounded-3">
-          <h2></h2>
-          <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-          <button class="btn btn-outline-secondary" type="button">Example button</button>
-        </div>
+	<h2 class="hinext"></h2>
+	<div class="container">
+		<button class="btn btn-danger rounded-pill px-3" type="button">회원탈퇴</button>
+	</div>
+	<p class="lead"></p>
 
-<div class="bg-light p-5 rounded mt-3">
-    <h1>Bottom Navbar example</h1>
-    <p class="lead">This example is a quick exercise to illustrate how the bottom navbar works.</p>
-    <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">View navbar docs »</a>
+</div>
+
+<div class="h-100 p-5 bg-light border rounded-3" id="payments">
+	<h2></h2>
+	<h3 style="text-align:left">나의결제내역</h3>
+	<div class="payment">
+	<button class="btn btn-primary d-inline-flex align-items-center" type="button">
+    결제->
+    <svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right-short"></use></svg>
+  </button>
   </div>
-  
-<div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">테스트중....</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>  
+</div>
+
+
+
+
 
 <script src="js/mypage/mypage.js"></script>
