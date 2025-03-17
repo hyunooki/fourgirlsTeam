@@ -102,8 +102,5 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.5.16</version>
 		</dependency>
-
-		
-
 	</dependencies>
 </project>

@@ -13,5 +13,6 @@ public class QnaVO {
 	private int qnaCnt;
 	private String userId;
 	private String categoryName;
+	private String categoryNo;
 
 }
