@@ -14,6 +14,9 @@ import com.exam.cart.control.CartDeleteControl;
 import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
+
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -27,11 +30,11 @@ import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 import com.exam.test.control.AdminMainControl;
-
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
 import com.exam.test.control.OverlapControl;
 import com.exam.test.control.ProdListControl;
+import com.exam.test.control.TestControl;
 
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
@@ -62,8 +65,9 @@ public class FrontController extends HttpServlet{
 
 		map.put("/test.do", new TestControl() );
 		map.put("/prodList.do", new ProdListControl());
+		map.put("/prodInsertForm.do", new ProdInsertFormControl());
+		map.put("/prodInsert.do", new ProdInsertControl());
 
-		
 		
 		
 		

@@ -2,26 +2,28 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
-  <configuration>
-  <!-- 오라클에서 칼럼명이 Product_no값을 
-     자바VO에서 필드명을 _없이 해석할수 있게하는 기능 ProductNO -->
-   <settings> 
+<configuration>
+	<!-- 오라클에서 칼럼명이 Product_no값을 자바VO에서 필드명을 _없이 해석할수 있게하는 기능 ProductNO -->
+	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
-	
+
 	<!-- mapper.xml에서 주소값을 다 입력하지 않고 알리아스만 사용하여 편의를 제공하는 기능 -->
 	<typeAliases>
-		 <typeAlias alias="test" type="com.exam.test.vo.TestVo" /> 
+
+		<typeAlias alias="test" type="com.exam.test.vo.TestVo" />
+		<typeAlias alias="prodvo" type="com.exam.test.vo.ProdListVo" />
+
 
 		 <typeAlias alias="member" type="com.exam.test.vo.MemberVo" /> 
 
-		 <typeAlias alias="prodList" type="com.exam.test.vo.ProdListVo" />
 
 	</typeAliases>
 
 		
 	
 	
+
 	<!-- 이클립스랑 오라클 연결 -->
 	<environments default="development">
 		<environment id="development">
@@ -36,15 +38,15 @@
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<!-- mapper를 읽어주는 기능 -->
 	<mappers>
+		<mapper resource="com/exam/test/mapper/ProdListMapper.xml" />
 	<mapper resource="com/exam/test/mapper/TestMapper.xml" /> 
 	<mapper resource="com/exam/test/mapper/RegisterMapper.xml" /> 
 	<mapper resource="com/exam/payment/mapper/PaymentMapper.xml" />
 	<mapper resource="com/exam/cart/mapper/CartMapper.xml"/>
 	<mapper resource="com/exam/qna/mapper/QnaMapper.xml"/>
-	
 	</mappers>
-	
-  </configuration>
+
+</configuration>

@@ -16,4 +16,6 @@ public class ProdListVo {
 	private int count;
 	private String userId;
 	private String categoryNo;
+	private String asc;
+	private String priceAsc;
 }
