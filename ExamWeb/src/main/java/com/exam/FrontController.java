@@ -14,6 +14,8 @@ import com.exam.cart.control.CartDeleteControl;
 import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
+import com.exam.detail.control.DetailControl;
+import com.exam.detail.control.ReplyListControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -23,18 +25,13 @@ import com.exam.payment.control.PdfDownloadControl;
 import com.exam.qna.control.QnaListAjaxControl;
 import com.exam.qna.control.QnaListControl;
 import com.exam.qna.control.QnaPaging;
-import com.exam.test.control.TestControl;
-import com.exam.test.control.loginControl;
-import com.exam.test.control.loginhandlecontrol;
-import com.exam.test.control.AdminMainControl;
-
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
 import com.exam.test.control.OverlapControl;
 import com.exam.test.control.ProdListControl;
-
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
+import com.exam.test.control.TestControl;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 
@@ -94,6 +91,11 @@ public class FrontController extends HttpServlet{
 		map.put("/checkOverlap.do", new OverlapControl());
 		
 		
+		
+		
+		// 민영
+		map.put("/detail.do", new DetailControl()); // 상세
+		map.put("/replyList.do", new ReplyListControl()); // 댓글목록
 		
 		
 		
