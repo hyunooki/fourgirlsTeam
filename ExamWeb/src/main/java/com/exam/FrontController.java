@@ -20,26 +20,13 @@ import com.exam.payment.control.DownloadFormAjax;
 import com.exam.payment.control.PaymentClearControl;
 import com.exam.payment.control.PaymentsForm;
 import com.exam.payment.control.PdfDownloadControl;
-
-
-import com.exam.payment.control.MainControl;
-import com.exam.payment.control.RegisterControl;
-import com.exam.payment.control.RegisterHandle;
 import com.exam.qna.control.QnaListAjaxControl;
 import com.exam.qna.control.QnaListControl;
 import com.exam.qna.control.QnaPaging;
-
 import com.exam.test.control.TestControl;
-
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 import com.exam.test.control.AdminMainControl;
-
-
-
-
-
-
 
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
