@@ -11,7 +11,7 @@ public interface TestMapper {
 public List<TestVo> testList();
 
 public MemberVo login(@Param("id")String id ,@Param("pw") String pw );
-	
+public MemberVo mypageInfo(String loginId );
 
 
 

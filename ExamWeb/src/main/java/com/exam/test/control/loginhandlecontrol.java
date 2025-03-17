@@ -36,9 +36,9 @@ public class loginhandlecontrol implements Control {
 				System.out.printf("아이디:"+id+"비밀번호:"+pw+"\n");
 				MemberVo member = mapper.login(id,pw);
 				//세션에 userType지정하기
-				String userType=member.getUserType(); 
-				System.out.println("userType->"+userType);
+
 				if (member != null) {
+					String userType=member.getUserType(); 
 					//System.out.println("환영합니다" + mvo.getMemberName());
 					// 세션 객체에 로그인 아이디를 저장
 					HttpSession session = req.getSession();
@@ -48,12 +48,16 @@ public class loginhandlecontrol implements Control {
 					if(member.getUserType().equals("admin")) {
 						
 						resp.sendRedirect("main.do");
+						
 					}
-				else { 
+				else {
 					resp.sendRedirect("main.do");
 					} 
-				} else {
+				} else{
+					req.setAttribute("result", "No");
 					System.out.println("id,pw 확인");
+					System.out.println("아이디비번틀림");
+					req.getRequestDispatcher("eun/login.tiles").forward(req, resp);
 				}
 			}		
 	}

@@ -21,6 +21,7 @@ public class OverlapControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		resp.setContentType("text/json;charset=utf-8");
+		
 		SqlSession sqlSession=DataSource.getInstance().openSession();
 		RegisterMapper mapper=sqlSession.getMapper(RegisterMapper.class); 
 		
@@ -32,7 +33,7 @@ public class OverlapControl implements Control {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(memberList);
 		System.out.println(json);
-		//js파일에 멤버리스트 목록보냄
+		// js 파일에 멤버리스트 목록보냄
 		resp.getWriter().print(json); 
 		
 	}
