@@ -31,6 +31,11 @@ public class QnaListAjaxControl implements Control {
 		String keyword= req.getParameter("keyword");
 		
 		page= page==null?"1":page;
+		category=category==null?"":category;
+		orderBy=orderBy==null?"":orderBy;
+		searchCondition=searchCondition==null?"":searchCondition;
+		keyword=keyword==null?"":keyword;
+		
 		
 		
 		SearchVO svo = new SearchVO(Integer.parseInt(page),category,orderBy,searchCondition,keyword);

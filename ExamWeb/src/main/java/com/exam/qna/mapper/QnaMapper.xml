@@ -12,20 +12,78 @@
                        qna_content,
                        qna_create,
                        user_id,
-                       category_no,
-                       qna_cnt
-         FROM qna) qna_table
-    WHERE qna_table.rn >(#{page}-1)*10+1
+                       c.category_no,
+                       qna_cnt,
+                       category_name
+                      
+          FROM qna q JOIN category c 
+                           ON(q.category_no = c.category_no)
+         <where>
+         <choose>
+            <when test="searchCondition.equals('title')">
+                AND qna_title LIKE '%'||#{keyword}||'%'
+            </when>
+            <when test="searchCondition.equals('content')">
+            	 AND qna_content LIKE '%'||#{keyword}||'%'
+            </when>
+            <when test="searchCondition.equals('writer')">
+            	 AND qna_writer LIKE '%'||#{keyword}||'%'
+            </when>
+         </choose>
+          <choose>
+          
+            <when test="!category.equals('')">
+                AND q.category_no=#{category}
+            </when>
+          </choose>
+         </where>
+           <choose>
+              <when test="orderBy.equals('')">
+                ORDER BY qna_create DESC
+              </when>
+               <when test="orderBy.equals('search')">
+                ORDER BY qna_cnt DESC
+              </when>
+               <when test="orderBy.equals('fast')">
+                ORDER BY qna_create DESC
+              </when>
+               <when test="orderBy.equals('last')">
+                ORDER BY qna_create
+              </when>
+           </choose>
+         ) qna_table
+    WHERE qna_table.rn >=(#{page}-1)*10+1
     AND qna_table.rn <![CDATA[<=]]> #{page}*10
+    
  </select>
  <!-- 총페이지수 -->
 <select id="totalCnt" parameterType="com.exam.qna.vo.SearchVO" resultType="int">
 	SELECT COUNT(1) cnt 
-	FROM qna 
+	FROM qna
+	<where>
+         <choose>
+            <when test="searchCondition.equals('title')">
+                AND qna_title LIKE '%'||#{keyword}||'%'
+            </when>
+            <when test="searchCondition.equals('content')">
+            	 AND qna_content LIKE '%'||#{keyword}||'%'
+            </when>
+            <when test="searchCondition.equals('writer')">
+            	 AND qna_writer LIKE '%'||#{keyword}||'%'
+            </when>
+         </choose>
+          <choose>
+          
+            <when test="!category.equals('')">
+                AND category_no=#{category}
+            </when>
+          </choose>
+         </where> 
  </select>
  <!-- category가져오기 -->
  <select id="categoryList" resultType="com.exam.qna.vo.QnaVO">
-   SELECT category_name
+   SELECT category_name,category_no
    FROM category
+   
  </select>
 </mapper>

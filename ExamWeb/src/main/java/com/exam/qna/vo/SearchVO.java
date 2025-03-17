@@ -14,6 +14,7 @@ public class SearchVO {
 	private String searchCondition;
 	private String keyword;
 	
+	
 	public SearchVO(int page) {
 		super();
 		this.page = page;
