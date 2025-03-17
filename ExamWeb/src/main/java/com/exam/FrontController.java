@@ -9,13 +9,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.exam.cart.control.CartDeleteControl;
 import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
 import com.exam.detail.control.DetailControl;
 import com.exam.detail.control.ReplyListControl;
+import com.exam.mypage.control.MyQnaControl;
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -118,7 +120,7 @@ public class FrontController extends HttpServlet{
 		//마이페이지 
 		map.put("/mypage.do", new MyPageControl()); 
 		map.put("/myinfo.do", new MyInfoControl());
-		
+	    map.put("/mypageqna.do",new MyQnaControl());
 		
 		
 		

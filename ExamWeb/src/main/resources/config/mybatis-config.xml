@@ -43,7 +43,8 @@
 	<mappers>
 		<mapper resource="com/exam/test/mapper/ProdListMapper.xml" />
 	<mapper resource="com/exam/test/mapper/TestMapper.xml" /> 
-	<mapper resource="com/exam/test/mapper/RegisterMapper.xml" /> 
+	<mapper resource="com/exam/test/mapper/RegisterMapper.xml" />
+	<mapper resource="com/exam/mypage/mapper/MypageMapper.xml" /> 
 	<mapper resource="com/exam/payment/mapper/PaymentMapper.xml" />
 	<mapper resource="com/exam/cart/mapper/CartMapper.xml"/>
 	<mapper resource="com/exam/qna/mapper/QnaMapper.xml"/>
