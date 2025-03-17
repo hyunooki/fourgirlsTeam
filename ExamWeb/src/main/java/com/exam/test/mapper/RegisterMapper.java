@@ -7,5 +7,6 @@ import com.exam.test.vo.MemberVo;
 public interface RegisterMapper {
 	public int insertMember(MemberVo member);
 	public List<String> memberList(); //멤버 id 조회
+	public int checkOverlap(String regId);
 	
 }

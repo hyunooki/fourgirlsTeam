@@ -30,6 +30,9 @@ import com.exam.test.control.AdminMainControl;
 
 import com.exam.test.control.LogOutControl;
 import com.exam.test.control.MainControl;
+import com.exam.test.control.MyInfoControl;
+import com.exam.test.control.MyPageControl;
+import com.exam.test.control.NoLoginControl;
 import com.exam.test.control.OverlapControl;
 import com.exam.test.control.ProdListControl;
 
@@ -87,11 +90,17 @@ public class FrontController extends HttpServlet{
 		map.put("/login.do", new loginControl());
 		map.put("/logout.do",new LogOutControl());
 		map.put("/loginhandle.do", new loginhandlecontrol());
+		//회원정보 존재하지 않을때 새로운 로그인 페이지 
+		map.put("/nologin.do", new NoLoginControl());
 		map.put("/main.do", new MainControl());
 		//회원가입페이지
 		map.put("/register.do", new RegisterControl());
 		map.put("/registerhandle.do", new RegisterHandle());
 		map.put("/checkOverlap.do", new OverlapControl());
+		//마이페이지 
+		map.put("/mypage.do", new MyPageControl()); 
+		map.put("/myinfo.do", new MyInfoControl());
+		
 		
 		
 		

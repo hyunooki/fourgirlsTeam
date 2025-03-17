@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
 --docsearch-primary-color: #5468ff ;
     --docsearch-text-color: #1c1e21 ;
@@ -266,6 +267,18 @@ header input {
         <label for="id">아이디</label>
         <input type="text" class="form-control" id="id" name="id" required="">
         <button class="btn btn-primary rounded-pill px-3" type="button">중복확인</button>
+        <c:choose>
+        <c:when test="${checkOverlap > 0 }">
+        <div class="alert alert-danger d-flex align-items-center"
+							role="alert">
+							<svg class="bi flex-shrink-0 me-2" width="24" height="24"
+								role="img" aria-label="Danger:">
+								<use xlink:href="#exclamation-triangle-fill" /></svg>
+							<p>이미존재하는 아이디입니다</p>
+						</div>
+        </c:when>
+       
+        </c:choose>
     </div>
 
     <div class="form-group">

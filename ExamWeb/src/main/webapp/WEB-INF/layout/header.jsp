@@ -56,7 +56,7 @@ body {
 					</c:when>
 					<c:otherwise>
 						<a href="logout.do" class="flex-c-m trans-04 p-lr-25"> 로그아웃 </a>
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a>
+						<a href="mypage.do" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a>
 					</c:otherwise>
 				</c:choose>
 
@@ -90,18 +90,24 @@ body {
 						</ul>--></li>
 
 					<li><a href="product.html">QNA</a></li>
-
+				<c:choose>
+				  <c:when test="${userType=='user' }">
 					<li class="label1"><a href="shoping-cart.html">장바구니</a></li>
-
+					<li class="label1"><a href="mypage.do">마이페이지</a></li>
+			      </c:when>
+                </c:choose>
+                
+                
 					<c:choose>
 					<c:when test="${userType=='admin' }">
 					<li class="testpaper"><a href="blog.html">시험지등록</a></li>
-
                   </c:when>
-                  <c:otherwise></c:otherwise>
+                  <c:otherwise>
+                  
+                  </c:otherwise>
                     </c:choose>
 					
-					<li class="testpaper"><a href="qnaList.do">QNA</a></li>
+					<!-- <li class="testpaper"><a href="qnaList.do">QNA</a></li> -->
 
 
 

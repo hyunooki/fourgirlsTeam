@@ -35,11 +35,10 @@ public class RegisterHandle implements Control {
 			String stringbirth = req.getParameter("birth"); // 2000-08-08 이런식임
 
 			Date birth = null;
-			
 
 			try {
 				birth = sdf.parse(stringbirth);
-				System.out.println("변환된 생년월일"+birth);
+				System.out.println("변환된 생년월일" + birth);
 			} catch (ParseException e) {
 				e.printStackTrace();
 				System.out.println("회원가입 생년원일 날짜변환실패");
@@ -52,26 +51,32 @@ public class RegisterHandle implements Control {
 			member.setUserName(name);
 			member.setEmail(email);
 			member.setBirth(birth);
-			//회원가입시 기본 userType을 user라고 설정...
+			// 회원가입시 기본 userType을 user라고 설정...
 			member.setUserType("user");
 			member.setOutType("no");
 
-			System.out.println("회원가입 정보확인"+member.getEmail()
-					          +member.getOutType()
-					          +member.getPassword()
-					          +member.getPhone()
-					          +member.getUserId()
-					          +member.getUserName()
-					          +member.getUserType());
-			
-			SqlSession sqlSession = com.exam.common.DataSource.getInstance().openSession();
-			RegisterMapper mapper = sqlSession.getMapper(RegisterMapper.class);
+			System.out.println("회원가입 정보확인" + member.getEmail() + member.getOutType() + member.getPassword()
+					+ member.getPhone() + member.getUserId() + member.getUserName() + member.getUserType());
 
-			if (mapper.insertMember(member) > 0) {
-				sqlSession.commit(true);
-				resp.sendRedirect("main.do");
-			} else {
-				System.out.println("회원가입실패");
+			SqlSession sqlSession = com.exam.common.DataSource.getInstance().openSession(true);
+			RegisterMapper mapper = sqlSession.getMapper(RegisterMapper.class);
+			// checkOverlap > 0 -> 회원가입 경고문 떠야됨
+			HttpSession session = req.getSession();
+
+			int checkOverlap = mapper.checkOverlap(id);
+
+			if (checkOverlap == 0) {
+
+				if (mapper.insertMember(member) > 0) {
+
+					resp.sendRedirect("main.do");
+				} else {
+					System.out.println("회원가입실패");
+				}
+			} else if (checkOverlap > 0) {
+				session.setAttribute("checkOverlap", checkOverlap);
+				req.getRequestDispatcher("eun/register2.tiles").forward(req, resp);
+				System.out.println("중복된 아이디가 있음 ");
 			}
 
 		}
