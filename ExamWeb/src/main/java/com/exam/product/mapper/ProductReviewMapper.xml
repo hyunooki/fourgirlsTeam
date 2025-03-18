@@ -10,5 +10,4 @@
                     JOIN PRODREPLY p3 ON p2.pay_no = p3.pay_no
 	WHERE p.prod_no = #{prod}
 	</select>
-
 </mapper>
