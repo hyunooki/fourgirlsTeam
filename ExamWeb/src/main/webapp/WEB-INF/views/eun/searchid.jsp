@@ -22,8 +22,6 @@
 
 
 </style>
-
-
           <!-- 후보2 -->
           <form action="searchidhandle.do" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
@@ -35,7 +33,7 @@
                  <h3>이메일</h3>
                 <div class="col-md-6">
                   <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                  <input type="email" class="form-control" name="email" id="emailId" required="">
                 </div>
                 <h3>날짜</h3> 
                 <div class="col-md-12">
@@ -43,11 +41,14 @@
                   <input type="date" class="form-control" name="birth" id="subject-field" required="">
                 </div>
               </div>
-					<button type="submit" class="btn btn-success">아이디비번찾기</button>
+           <button type="button" class="btn btn-success" id="sendemail">메일보내기</button>
+		  <button type="submit" class="btn btn-success">아이디비번찾기</button>
             </form>
             
-            
-            
+ <script type="text/javascript"
+         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"> 
+ </script>           
+ <script src="js/sendemail/sendemail.js" ></script>      
           
           
           
