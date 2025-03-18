@@ -29,7 +29,7 @@ public class OverlapControl implements Control {
 		
 		System.out.println(memberList);
 		
-		
+		//
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(memberList);
 		System.out.println(json);
