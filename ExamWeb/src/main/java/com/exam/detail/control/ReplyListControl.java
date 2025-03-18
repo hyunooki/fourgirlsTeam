@@ -23,13 +23,16 @@ public class ReplyListControl implements Control {
 		System.out.println("실행됨");
 		resp.setContentType("text/json;charset=utf-8");	
 
-		String param = req.getParameter("pno");
+		String pno = req.getParameter("pno");
 		String page = req.getParameter("page");
 
 		SqlSession session = DataSource.getInstance().openSession(true);
 		ProductReviewMapper mapper = session.getMapper(ProductReviewMapper.class);
 		
-		List<ReplyVO> rply = mapper.productReply(Integer.parseInt(param));
+		ReplyVO rvo = new ReplyVO();
+		rvo.setPage(Integer.parseInt(page));
+		rvo.setProdNo(Integer.parseInt(pno));
+		List<ReplyVO> rply = mapper.productReply(rvo);
 
 		// gson활용.
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();

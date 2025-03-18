@@ -86,7 +86,7 @@ button {
 		<div class="container">
 			<div class="form-container">
 			    <h2>상품 등록</h2><!-- enctype="multipart/form-data" -->
-			    <form action="http://localhost/ExamWeb/prodInsert.do" method="POST" >
+			    <form action="http://localhost/ExamWeb/prodInsert.do" method="POST" enctype="multipart/form-data">
 			        <label for="productName">상품명</label>
 			        <input type="text" id="productName" name="prodName" placeholder="상품명을 입력하세요" required>
 			
@@ -94,16 +94,16 @@ button {
 			        <textarea id="productDesc" name="content" placeholder="상품 설명을 입력하세요" required></textarea>
 			
 			        <label for="seller">등록자</label>
-			        <input type="text" id="seller" name="userId" placeholder="등록자명을 입력하세요" required>
+			        <input type="text" id="seller" name="userId" placeholder="등록자명을 입력하세요" required value="${loginId}" readonly>
 			
 			        <label for="price">가격</label>
 			        <input type="number" id="price" name="price" placeholder="가격을 입력하세요" required>
 			
 			        <label for="pages">페이지 수</label>
-			        <input type="number" id="pages" name="pages" placeholder="페이지 수를 입력하세요" required>
+			        <input type="number" id="page" name="page" placeholder="페이지 수를 입력하세요" required>
 			
 			        <label for="image">이미지</label>
-			        <input type="file" id="image" name="image" accept="image/*">
+			        <input type="file" id="image" name="image">
 			
 			        <label for="fileUpload">파일 업로드</label>
 			        <input type="file" id="fileUpload" name="pdf">

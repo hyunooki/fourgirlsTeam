@@ -59,41 +59,41 @@
 				</div>
 			</div>
 		</div>
-		<div class="review"></div>
-		 <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-            	<th>번호</th>
-                <th>등록일</th>
-                <th>제목</th>
-                <th>별점</th>
-                <th>내용</th>
-                <th>작성자</th>
-            </tr>
-        </thead>
-    </table>
+		
+		<form>
+		<label>제목
+		<input type="text" id="revTitle" placeholder="제목" style="border:1px"></label>
+		<label>별점
+		<input type="text" id="star" placeholder="별점"></label>
+		<label>내용
+		<input type="text" id="content" placeholder="내용"></label>
+		<button id="addReply" class="btn btn-primary">리뷰등록</button>
+		</form>	
+		
+		<table class="display table" style="width:95%; margin:auto;">
+				<tr>
+					<th class="text-center" style="width:10%">번호</th>
+					<th class="text-center" style="width:20%">등록일</th>
+					<th class="text-center" style="width:15%">제목</th>
+					<th class="text-center" style="width:10%">별점</th>
+					<th class="text-center" style="width:20%">내용</th>
+					<th class="text-center" style="width:15%">작성자</th>
+				</tr>				
+		</table>
+		<div id="review">
+		
+		</div>
+		<nav aria-label="Page navigation example" id="pagingMargin">
+		<ul class="pagination justify-content-center">
+			
+			
+		</ul>
+	</nav>
 
 
 	</div>
 </div>
 <script>
-// 목록메소드.
-
-	fetch('replyList.do?pno=' + ${product.prodNo} )
-		.then(result => result.json()) // 화살표 함수.
-		.then(list =>{
-			list.forEach(reply => {
-				let tag = `<p>\${reply.revNo}
-							\${reply.revCreate}
-							\${reply.revTitle}
-							\${reply.starPoint}
-							\${reply.revContent}
-							\${reply.userId}</p>
-							`;
-				document.querySelector('.review')
-						.insertAdjacentHTML("afterend", tag);
-			})
-		}) // 정상처리시 실행함수.
-		.catch(err => console.log(err)) // 에러시 실행할 함수.
-
+let prodNo =${product.prodNo}
 </script>
+<script src="js/prod/replyPage.js"></script>

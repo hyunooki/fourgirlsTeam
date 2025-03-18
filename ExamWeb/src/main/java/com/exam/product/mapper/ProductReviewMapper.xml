@@ -4,11 +4,41 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.exam.product.mapper.ProductReviewMapper">
 	<select id="productReply"
-	resultType="com.exam.product.vo.ReplyVO" parameterType="int">
-	SELECT p3.rev_no, p3.star_point, p3.rev_title, p3.rev_create, p3.rev_content, p3.user_id, p3.pay_no
-	FROM PRODUCTS p JOIN PAYMENTS p2 ON p.prod_no = p2.prod_no
-                    JOIN PRODREPLY p3 ON p2.pay_no = p3.pay_no
-	WHERE p.prod_no = #{prod}
+		resultType="com.exam.product.vo.ReplyVO"
+		parameterType="com.exam.product.vo.ReplyVO">  	
+    	    
+		SELECT prodreply_table.* 
+		FROM(
+			SELECT rownum rn, p3.rev_no, p3.star_point, p3.rev_title, p3.rev_create,
+					p3.rev_content, p3.user_id, p3.pay_no
+			FROM PRODUCTS p JOIN PAYMENTS p2 ON p.prod_no = p2.prod_no
+							JOIN PRODREPLY p3 ON p2.pay_no = p3.pay_no
+			WHERE p.prod_no = #{prodNo}) prodreply_table	
+		WHERE prodreply_table.rn >=(#{page}-1)*5+1
+    	AND prodreply_table.rn <![CDATA[<=]]> #{page}*5
 	</select>
-
+	<!-- 총페이지수 -->
+	<select id="replyTotalCnt" parameterType="com.exam.product.vo.ReplyVO" resultType="int">
+	SELECT COUNT(1) cnt 
+	FROM PRODUCTS  p JOIN PAYMENTS p2 ON p.prod_no = p2.prod_no
+							JOIN PRODREPLY p3 ON p2.pay_no = p3.pay_no
+	WHERE p2.prod_no = #{prod} 
+	</select>
+	
+	<insert id="replyAdd" parameterType="com.exam.product.vo.ReplyVO">
+	INSERT INTO prodReply(rev_no, 
+						  star_point, 
+						  rev_title, 
+						  rev_create, 
+						  rev_content, 
+						  uer_id)
+		VALUES(
+				(SELECT MAX(NAL(prodreply.rev_no,0))), 
+				#{revTitle}, 
+				#{starPoint}, 
+				sysdate, 
+				#{revContent}, 
+				#{userId}
+				)
+	</insert>
 </mapper>

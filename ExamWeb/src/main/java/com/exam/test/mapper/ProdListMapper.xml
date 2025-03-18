@@ -7,8 +7,24 @@
 		parameterType="com.exam.test.vo.ProdListVo">
 		
 		SELECT a.*
-		FROM (SELECT /*+ INDEX_DESC (r PK_PRODUCTS) */
-						rownum rn,
+		  FROM (SELECT
+		  <choose>
+		  <when test="asc.equals('') and  priceAsc.equals('')">
+		  	ROW_NUMBER() OVER (ORDER BY create_date DESC) rn,
+		  </when>
+		   <when test="asc.equals('1'.toString())">
+		     ROW_NUMBER() OVER (ORDER BY prod_name ASC) rn,
+		     </when>
+		     <when test="asc.equals('0'.toString())">
+		     ROW_NUMBER() OVER (ORDER BY prod_name DESC) rn,
+		     </when>
+		     <when test="priceAsc.equals('1'.toString())">
+		     ROW_NUMBER() OVER (ORDER BY price ASC) rn,
+		     </when>
+		     <when test="priceAsc.equals('0'.toString())">
+		     ROW_NUMBER() OVER (ORDER BY price DESC) rn,
+		     </when>
+		    </choose>
 						prod_no,
 						prod_name,
 						price,
@@ -18,42 +34,27 @@
 						pdf,
 						count,
 						user_id,
-						category_no
-			  FROM products
-			  <if test="!prodName.equals('')">
+						category_no 
+			  FROM products ) a
+			  <if test="!prodName.equals('')"> 
 			  where prod_name like '%' ||#{prodName} || '%'
 			  </if>
-		<choose>
-			<when test="asc.equals('1'.toString())">
-				ORDER BY prod_name ASC
-			</when>
-			<when test="asc.equals('0'.toString())">
-				ORDER BY prod_name DESC
-			</when>
-			<when test="priceAsc.equals('1'.toString())">
-				ORDER BY price ASC
-			</when>
-			<when test="priceAsc.equals('0'.toString())">
-				ORDER BY price DESC
-			</when>
-		</choose>
-			  ) a
 			WHERE a.rn>(#{page}- 1)*8
 		AND a.rn <![CDATA[<=]]> #{page} *8	</select>
 
 	<insert id="ProdInsert" parameterType="prodvo">
 		insert into products
-		(prod_no, prod_name, content, user_id, price)
+		(prod_no, prod_name, content, user_id, price, page, image)
 		values((select
 		max(prod_no) +1 from products),
-		#{prodName},#{content},#{userId},#{price})
+		#{prodName},#{content},#{userId},#{price},#{page},#{image})
 	</insert>
 
 	<select id="totalPage" parameterType="String" resultType="int">
 		SELECT count(1)
 		FROM products
 		<if test="!prodName.equals('')">
-			where prod_name like '%' || #{prodName} || '%'
+			where prod_name like '%' || #{name} || '%'
 		</if>
 	</select>
 

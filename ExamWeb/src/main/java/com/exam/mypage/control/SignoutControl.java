@@ -1,7 +1,8 @@
 package com.exam.mypage.control;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,28 +13,31 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.exam.common.Control;
 import com.exam.mypage.mapper.MypageMapper;
-import com.exam.qna.vo.QnaVO;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class MyQnaControl implements Control {
+public class SignoutControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method s
 		resp.setContentType("text/json;charset=utf-8");
 		SqlSession sqlSession=com.exam.common.DataSource.getInstance().openSession(); 
 		MypageMapper mapper=sqlSession.getMapper(MypageMapper.class);
-		
 		HttpSession session = req.getSession();
 		String loginId=(String)session.getAttribute("loginId");
 		
-		List<QnaVO> myqna=mapper.userqna(loginId); 
+		int out=mapper.signout(loginId); 
+		Map<String,Object> result=new HashMap<String, Object>(); 
 		
-		Gson gson=new GsonBuilder().setPrettyPrinting().create();
-		String json=gson.toJson(myqna); 
+		if(out>0) {
+		  result.put("signOut", "OK");
+		  result.put("retVal", loginId); 
+		  sqlSession.commit(true);
+		} else {
+			result.put("signOut", "NG"); 
+		}
+		Gson gson=new GsonBuilder().create();
+		String json=gson.toJson(result);
 		resp.getWriter().print(json);
 	}
-
 }

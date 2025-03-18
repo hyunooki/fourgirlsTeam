@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.exam.admin.control.AdminMainControl;
 import com.exam.admin.control.FullDataFormControl;
 import com.exam.admin.control.SceduleFormControl;
@@ -18,8 +17,17 @@ import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
 import com.exam.detail.control.DetailControl;
+import com.exam.detail.control.ReplyAddControl;
 import com.exam.detail.control.ReplyListControl;
+import com.exam.detail.control.ReplyPageContol;
+import com.exam.mypage.control.MyCartsControl;
+import com.exam.mypage.control.MyPaymentControl;
 import com.exam.mypage.control.MyQnaControl;
+import com.exam.mypage.control.SearchIdControl;
+import com.exam.mypage.control.SearchIdhandleControl;
+import com.exam.mypage.control.SignoutControl;
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -127,13 +135,18 @@ public class FrontController extends HttpServlet{
 		map.put("/mypage.do", new MyPageControl()); 
 		map.put("/myinfo.do", new MyInfoControl());
 	    map.put("/mypageqna.do",new MyQnaControl());
-		
-		
+		map.put("/mypagecarts.do", new MyCartsControl());
+		map.put("/mypagepayment.do", new MyPaymentControl());
+		map.put("/signout.do", new SignoutControl());//회원탈퇴
+		map.put("/searchid.do", new SearchIdControl());//아이디 비밀번호 찾기
+		map.put("/searchidhandle.do", new SearchIdhandleControl());
 		
 		
 		// 민영
 		map.put("/detail.do", new DetailControl()); // 상세
 		map.put("/replyList.do", new ReplyListControl()); // 댓글목록
+		map.put("/replypaging.do", new ReplyPageContol()); 
+		map.put("/replyAdd.do", new ReplyAddControl());
 		
 		
 		
