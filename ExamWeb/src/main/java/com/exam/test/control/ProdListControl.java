@@ -26,6 +26,8 @@ public class ProdListControl implements Control {
 			name = "";
 		}
 		
+		page= page==null?"1":page;
+		
 		String asc = req.getParameter("asc");
 		if(asc == null) {
 			asc = "";
@@ -56,10 +58,12 @@ public class ProdListControl implements Control {
 		item.setPriceAsc(priceAsc);
 		item.setPage(Integer.parseInt(page));
 		List<ProdListVo> prodList = mapper.ProdList(item);
-
+   
 		req.setAttribute("prodList", prodList);
-		
-		int totalCnt = mapper.totalPage(page);
+	    req.setAttribute("name", name);
+	    req.setAttribute("asc", asc);
+	    req.setAttribute("priceAsc", priceAsc);
+		int totalCnt = mapper.totalPage(name);
 		PageVO paging = new PageVO(Integer.parseInt(page), totalCnt);
 		req.setAttribute("paging", paging);
 

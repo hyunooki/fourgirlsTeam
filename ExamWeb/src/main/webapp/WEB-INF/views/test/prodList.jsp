@@ -99,7 +99,7 @@
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-01.jpg" alt="IMG-PRODUCT">
+							<img src="images/product-04.jpg" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -130,12 +130,54 @@
 	
 			</div>
 
-			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
-			</div>
+			<!-- paging 시작. -->
+<nav aria-label="...">
+	<ul class="pagination">
+		<!-- 이전 페이지 여부. -->
+		<c:choose>
+			<c:when test="${paging.prev }">
+				<li class="page-item"><a class="page-link"
+					href="boardList.do?page=${paging.startPage - 1 }">Previous</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><span class="page-link">Previous</span>
+				</li>
+			</c:otherwise>
+		</c:choose>
+
+		<!-- 페이지 start ~ end 반복 -->
+		<c:forEach var="p" begin="${paging.startPage }"
+			end="${paging.endPage }">
+			<c:choose>
+				<c:when test="${p == paging.currentPage }">
+					<li class="page-item active" aria-current="page"><span
+						class="page-link"><c:out value="${p }" /></span></li>
+				</c:when>
+				<c:otherwise>
+					<li class="page-item"><a class="page-link"
+						href="prodList.do?page=${p }&name=${name}&asc=${asc}&priceAsc=${priceAsc}">${p }</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+
+		<!-- 이후페이지 여부. -->
+		<c:choose>
+			<c:when test="${paging.next }">
+				<li class="page-item"><a class="page-link"
+					href="boardList.do?page=${paging.endPage + 1 }">Next</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item disabled"><span class="page-link">Next</span>
+				</li>
+			</c:otherwise>
+		</c:choose>
+
+	</ul>
+</nav>
+<!-- paging 끝. -->
+			
+			
+			
 		</div>
 	</div>
 	
