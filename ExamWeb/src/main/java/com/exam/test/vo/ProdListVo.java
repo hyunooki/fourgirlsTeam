@@ -20,4 +20,5 @@ public class ProdListVo {
 	private String priceAsc;
 	private int page;
 	
+	
 }
