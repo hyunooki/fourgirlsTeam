@@ -59,19 +59,17 @@
 				</div>
 			</div>
 		</div>
+		<table class="display table" style="width:95%; margin:auto;">
+			<tr>
+				<th class="text-center" style="width:10%">번호</th>
+				<th class="text-center" style="width:20%">등록일</th>
+				<th class="text-center" style="width:15%">제목</th>
+				<th class="text-center" style="width:10%">별점</th>
+				<th class="text-center" style="width:20%">내용</th>
+				<th class="text-center" style="width:15%">작성자</th>
+			</tr>
+		</table>
 		<div class="review"></div>
-		 <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-            	<th>번호</th>
-                <th>등록일</th>
-                <th>제목</th>
-                <th>별점</th>
-                <th>내용</th>
-                <th>작성자</th>
-            </tr>
-        </thead>
-    </table>
 
 
 	</div>
@@ -83,13 +81,14 @@
 		.then(result => result.json()) // 화살표 함수.
 		.then(list =>{
 			list.forEach(reply => {
-				let tag = `<p>\${reply.revNo}
-							\${reply.revCreate}
-							\${reply.revTitle}
-							\${reply.starPoint}
-							\${reply.revContent}
-							\${reply.userId}</p>
-							`;
+				let tag = `<table style="width:95%; margin:auto;"><tr>
+					<td class="text-center" style="width:10%">\${reply.revNo}</td>
+					<td class="text-center" style="width:20%">\${reply.revCreate}</td>
+					<td class="text-center" style="width:15%">\${reply.revTitle}</td>
+					<td class="text-center" style="width:10%">\${reply.starPoint}</td>
+					<td class="text-center" style="width:20%">\${reply.revContent}</td>
+					<td class="text-center" style="width:15%">\${reply.userId}</td>
+					</tr></table>`;
 				document.querySelector('.review')
 						.insertAdjacentHTML("afterend", tag);
 			})

@@ -1,6 +1,6 @@
 package com.exam.product.vo;
 
-import java.util.Date;
+import java.sql.Date;
 import lombok.Data;
 
 @Data
