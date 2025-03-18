@@ -4,7 +4,6 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>  
 
-  <!-- exam 적용  2 -->
 
   <definition name="myapp.user" template="/WEB-INF/layout/template.jsp">
     <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
@@ -12,8 +11,18 @@
     <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
   </definition>
   
-  <definition name = "WILDCARD:*/*" extends="myapp.user">
-  	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+  <!-- admin용 -->
+  <definition name="myapp.admin" template="/WEB-INF/admin/template.jsp">
+    <put-attribute name="header" value="/WEB-INF/admin/header.jsp" />
+    <put-attribute name="body" value="/WEB-INF/admin/body.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/admin/footer.jsp" />
   </definition>
   
+   <definition name = "WILDCARD:admin/*" extends="myapp.admin">
+  	<put-attribute name="body" value="/WEB-INF/views/master/{1}.jsp" />
+  </definition>
+  
+   <definition name = "WILDCARD:*/*" extends="myapp.user">
+  	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+  </definition>
 </tiles-definitions>

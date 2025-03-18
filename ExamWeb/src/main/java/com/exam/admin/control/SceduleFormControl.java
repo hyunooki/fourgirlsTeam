@@ -1,4 +1,4 @@
-package com.exam.test.control;
+package com.exam.admin.control;
 
 import java.io.IOException;
 
@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
 
-public class AdminMainControl implements Control {
+public class SceduleFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//관리자페이지 따로만들기 
-		req.getRequestDispatcher("eun/adminmain.tiles").forward(req, resp); 
+		// TODO Auto-generated method stub
+		
+		req.getRequestDispatcher("admin/calander.tiles").forward(req,resp);
 	}
 
 }

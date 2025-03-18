@@ -82,16 +82,23 @@ function addLink() {
     });
 }
 document.querySelector('#addReply').addEventListener('click',function(e){
-	let content = document.querySelector('#content>td').innerText;
-	fetch('qnaReplyAdd.do?qnaNo='+qno+'&writer='+logid+"&content="+content)
+	if(logid.length==0){
+		swal('로그인후 사용해주세요','error','error')
+		return;
+	}
+	let content = document.querySelector('#reply').value;
+	console.log(content)
+	console.log(qno)
+	fetch('qnaReplyAdd.do?qno='+qno+'&writer='+logid+"&content="+content)
    .then(result => result.json())
    .then(result =>{
 	   if(result.retCode=='OK'){
-		 swal("등록 성공","success")
+		 swal("등록 성공","success","success")
 		 page=1
+		 document.querySelector('#reply').value=''
 		 makeRow(page)
 	   }else{
-		swal("등록 실패","error")
+		swal("등록 실패","error","error")
 	   }
    })
 })

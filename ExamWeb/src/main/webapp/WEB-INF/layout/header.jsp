@@ -100,6 +100,8 @@ body {
                 
 					<c:choose>
 					<c:when test="${userType=='admin' }">
+				
+					<li class="testpaper"><a href="adminMain.do">관리자페이지</a></li>
 					<li class="testpaper"><a href="prodInsertForm.do">시험지등록</a></li>
                   </c:when>
                   <c:otherwise>

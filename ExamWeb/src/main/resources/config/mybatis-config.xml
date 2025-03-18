@@ -50,7 +50,7 @@
 	<mapper resource="com/exam/qna/mapper/QnaMapper.xml"/>
 	<mapper resource="com/exam/product/mapper/ProductMapper.xml"/>
 	<mapper resource="com/exam/product/mapper/ProductReviewMapper.xml"/>
-	
+	<mapper resource="com/exam/admin/mapper/AdminMapper.xml"/>
 	
 	
 

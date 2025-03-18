@@ -9,7 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.exam.admin.control.AdminMainControl;
+import com.exam.admin.control.FullDataFormControl;
+import com.exam.admin.control.SceduleFormControl;
 import com.exam.cart.control.CartDeleteControl;
 import com.exam.cart.control.CartFormControl;
 import com.exam.cart.control.CartToPaymentInsert;
@@ -107,7 +109,9 @@ public class FrontController extends HttpServlet{
 		map.put("/qnaReplyList.do", new QnaReplyListForm());
 		map.put("/qnaReplyPage.do", new QnaReplyPageControl());
 		map.put("/qnaReplyAdd.do", new QnaReplyAddControl());
-		
+		map.put("/adminMain.do", new AdminMainControl());
+		map.put("/scedule.do", new SceduleFormControl());
+		map.put("/fullData.do",new FullDataFormControl());
 		
 		
 		
