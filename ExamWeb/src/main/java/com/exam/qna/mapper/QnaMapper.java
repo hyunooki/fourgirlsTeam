@@ -23,4 +23,9 @@ public interface QnaMapper {
  public List<QnaVO> qnaReplyList(QnaVO param);
 
  public int replyTotalCnt(int param);
+ 
+ public int cntUpdate(int param);
+ 
+ public int qnaReplyAdd(QnaVO param);
+ 
 }

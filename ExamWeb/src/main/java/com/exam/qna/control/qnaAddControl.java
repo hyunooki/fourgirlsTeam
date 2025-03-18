@@ -25,7 +25,7 @@ public class qnaAddControl implements Control {
 		
 		QnaVO qna = new QnaVO();
 		qna.setQnaTitle(title);
-		qna.setQnaContent(content);
+		qna.setQnaContent(content);   
 		qna.setUserId(writer);
 		qna.setCategoryNo(category);
 		

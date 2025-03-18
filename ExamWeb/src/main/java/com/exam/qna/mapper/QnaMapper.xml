@@ -133,4 +133,24 @@
 	FROM qnareply
 	WHERE qna_no= #{qnaNo}
  </select>
+ 
+ <update id="cntUpdate" parameterType="int">
+   update qna 
+   set qna_cnt = qna_cnt +1
+   WHERE qna_no =#{qnaNo}
+ </update>
+ <insert id="qnaReplyAdd" parameterType="com.exam.qna.vo.QnaVO">
+   INSERT INTO qna(qna_revno,
+                   qna_content,
+                   user_id,
+                   qna_revdate,
+                   qna_no)
+     VALUES(
+     		(SELECT MAX(NAL(qna_revno,0))),
+     		#{qnaContent},
+     		#{userId},
+     		sysdate,
+     		#{qnaNo}
+            )
+ </insert>
 </mapper>
