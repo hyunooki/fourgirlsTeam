@@ -13,7 +13,7 @@ import com.exam.common.DataSource;
 import com.exam.qna.mapper.QnaMapper;
 import com.exam.qna.vo.QnaVO;
 
-public class QnaDetailForm implements Control {
+public class QnaReplyAddControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,14 +21,23 @@ public class QnaDetailForm implements Control {
 		SqlSession session = DataSource.getInstance().openSession(true);
 		QnaMapper mapper = session.getMapper(QnaMapper.class);
 		
-		int qno = Integer.parseInt(req.getParameter("qno"));
-		mapper.cntUpdate(qno);
+		String content = req.getParameter("content");
+		String qno= req.getParameter("qno");
+		String writer= req.getParameter("writer");
 		
-		QnaVO qna = mapper.qnaDetail(qno);
+		QnaVO qna = new QnaVO();
+		
+		qna.setQnaContent(content);
+		qna.setQnaNo(Integer.parseInt(qno));
+		qna.setUserId(writer);
+		
+		if(mapper.qnaReplyAdd(qna)>0) {
+			resp.getWriter().print("{\"retCode\" : \"OK\"}");
+		}else{
+			resp.getWriter().print("{\"retCode\" : \"NG\"}");
+		};
 		
 		
-		req.setAttribute("qna", qna);
-		
-		req.getRequestDispatcher("qna/qnaDetail.tiles").forward(req, resp);
 	}
+
 }

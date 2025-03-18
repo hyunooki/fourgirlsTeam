@@ -81,3 +81,18 @@ function addLink() {
         });
     });
 }
+document.querySelector('#addReply').addEventListener('click',function(e){
+	let content = document.querySelector('#content>td').innerText;
+	fetch('qnaReplyAdd.do?qnaNo='+qno+'&writer='+logid+"&content="+content)
+   .then(result => result.json())
+   .then(result =>{
+	   if(result.retCode=='OK'){
+		 swal("등록 성공","success")
+		 page=1
+		 makeRow(page)
+	   }else{
+		swal("등록 실패","error")
+	   }
+   })
+})
+

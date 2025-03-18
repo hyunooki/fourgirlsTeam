@@ -30,6 +30,7 @@ import com.exam.qna.control.QnaDetailForm;
 import com.exam.qna.control.QnaListAjaxControl;
 import com.exam.qna.control.QnaListControl;
 import com.exam.qna.control.QnaPaging;
+import com.exam.qna.control.QnaReplyAddControl;
 import com.exam.qna.control.QnaReplyListForm;
 import com.exam.qna.control.QnaReplyPageControl;
 import com.exam.qna.control.qnaAddControl;
@@ -97,6 +98,7 @@ public class FrontController extends HttpServlet{
 		map.put("/deleteQna.do", new QnaDeleteControl());
 		map.put("/qnaReplyList.do", new QnaReplyListForm());
 		map.put("/qnaReplyPage.do", new QnaReplyPageControl());
+		map.put("/qnaReplyAdd.do", new QnaReplyAddControl());
 		
 		
 		
