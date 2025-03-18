@@ -21,6 +21,11 @@ import com.exam.detail.control.ReplyPageContol;
 import com.exam.mypage.control.MyCartsControl;
 import com.exam.mypage.control.MyPaymentControl;
 import com.exam.mypage.control.MyQnaControl;
+import com.exam.mypage.control.SearchIdControl;
+import com.exam.mypage.control.SearchIdhandleControl;
+import com.exam.mypage.control.SignoutControl;
+import com.exam.test.control.ProdInsertControl;
+import com.exam.test.control.ProdInsertFormControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -128,6 +133,9 @@ public class FrontController extends HttpServlet{
 	    map.put("/mypageqna.do",new MyQnaControl());
 		map.put("/mypagecarts.do", new MyCartsControl());
 		map.put("/mypagepayment.do", new MyPaymentControl());
+		map.put("/signout.do", new SignoutControl());//회원탈퇴
+		map.put("/searchid.do", new SearchIdControl());//아이디 비밀번호 찾기
+		map.put("/searchidhandle.do", new SearchIdhandleControl());
 		
 		
 		// 민영
