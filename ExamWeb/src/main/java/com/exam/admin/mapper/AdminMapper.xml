@@ -10,4 +10,16 @@
    		  ,end_date AS "end"  
    	FROM calander
    </select>
+    <!-- 캘린더 삭제 -->
+   	<delete id="deleteEvent" parameterType="String">
+   		DELETE FROM calander
+		WHERE TITLE=#{title}
+		  AND START_DATE =#{start}
+		  AND END_DATE=#{end}
+   	</delete>
+   	<!-- 캘린더 등록 -->
+   	<insert id="insertEvent" parameterType="String">
+   		INSERT INTO calander (title,start_date,end_date)
+   		VALUES (#{title},#{start},#{end})
+   	</insert>
 </mapper>

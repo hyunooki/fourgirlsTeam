@@ -9,7 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.exam.admin.control.AdminMainControl;
+import com.exam.admin.control.CreateDate;
+import com.exam.admin.control.DeleteDate;
 import com.exam.admin.control.FullDataFormControl;
 import com.exam.admin.control.SceduleFormControl;
 import com.exam.cart.control.CartDeleteControl;
@@ -26,8 +29,6 @@ import com.exam.mypage.control.MyQnaControl;
 import com.exam.mypage.control.SearchIdControl;
 import com.exam.mypage.control.SearchIdhandleControl;
 import com.exam.mypage.control.SignoutControl;
-import com.exam.test.control.ProdInsertControl;
-import com.exam.test.control.ProdInsertFormControl;
 import com.exam.payment.control.DeletePayControl;
 import com.exam.payment.control.DownloacFormControl;
 import com.exam.payment.control.DownloadFormAjax;
@@ -112,7 +113,8 @@ public class FrontController extends HttpServlet{
 		map.put("/adminMain.do", new AdminMainControl());
 		map.put("/scedule.do", new SceduleFormControl());
 		map.put("/fullData.do",new FullDataFormControl());
-		
+		map.put("/insertData.do", new CreateDate());
+		map.put("/deleteCal.do", new DeleteDate());
 		
 		
 		
