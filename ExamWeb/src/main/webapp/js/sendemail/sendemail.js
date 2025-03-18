@@ -17,7 +17,6 @@ document.querySelector('#sendemail').addEventListener('click', function(e) {
 		.then(result => {
 			console.log(result);
 			let members = result;
-
 			console.log('멤버리스트');
 			console.log(members);
 			for (let member of members) {
