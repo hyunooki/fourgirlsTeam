@@ -15,6 +15,8 @@ import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
 import com.exam.detail.control.DetailControl;
 import com.exam.detail.control.ReplyListControl;
+import com.exam.mypage.control.MyCartsControl;
+import com.exam.mypage.control.MyPaymentControl;
 import com.exam.mypage.control.MyQnaControl;
 import com.exam.test.control.ProdInsertControl;
 import com.exam.test.control.ProdInsertFormControl;
@@ -121,8 +123,8 @@ public class FrontController extends HttpServlet{
 		map.put("/mypage.do", new MyPageControl()); 
 		map.put("/myinfo.do", new MyInfoControl());
 	    map.put("/mypageqna.do",new MyQnaControl());
-		
-		
+		map.put("/mypagecarts.do", new MyCartsControl());
+		map.put("/mypagepayment.do", new MyPaymentControl());
 		
 		
 		// 민영

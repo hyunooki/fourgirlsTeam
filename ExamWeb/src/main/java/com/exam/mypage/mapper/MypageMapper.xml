@@ -19,6 +19,31 @@
 		where user_id= #{loginId}
 	</select>
 
+<select id="mypagecarts" resultType="com.exam.cart.vo.CartVO" parameterType="String">
+select c.cart_no,
+       m.user_id,
+       c.prod_no,
+       p.prod_name,
+       p.price,
+       p.image      
+from carts c join members m on(c.user_id=m.user_id) 
+             join products p on(c.prod_no=p.prod_no)
+where m.user_id=#{loginId}  
+</select>
 
+<select id="mypagepayment" resultType="com.exam.payment.vo.PaymentVO" parameterType="String">
+select pay.PAY_NO,
+       pay.PRICE,
+       pay.prod_no,
+       pro.prod_name,
+       pay.pay_date,
+       pay.user_id,
+       pro.pdf,
+       c.category_name,
+       pro.count
+from payments pay join products pro on(pay.prod_no=pro.prod_no)
+                  join category c on(pro.CATEGORY_NO=c.CATEGORY_NO)
+where pay.user_id=#{loginId}
+</select>
 
 </mapper>
