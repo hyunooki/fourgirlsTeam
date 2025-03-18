@@ -21,7 +21,8 @@
 		select user_id
 		from members
 	</select>
-<select id="checkOverlap" parameterType="String">
+	
+  <select id="checkOverlap" parameterType="String">
 		SELECT count(*)
 		FROM members
 		WHERE user_id= #{regId}

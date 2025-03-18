@@ -9,6 +9,7 @@ import com.exam.cart.vo.CartVO;
 import com.exam.idpw.vo.IdpwVO;
 import com.exam.payment.vo.PaymentVO;
 import com.exam.qna.vo.QnaVO;
+import com.exam.test.vo.MemberVo;
 
 public interface MypageMapper {
 	
@@ -19,4 +20,5 @@ public interface MypageMapper {
 	public IdpwVO searchid(@Param("name") String name
 			              ,@Param("email") String email
 			              , @Param("birth") Date birth);
+	public List<MemberVo> members(); 
 }
