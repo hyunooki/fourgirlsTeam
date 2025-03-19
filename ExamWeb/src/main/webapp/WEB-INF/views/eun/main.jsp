@@ -9,7 +9,7 @@
 				<div class="item-slick1" style="background-image: url(images/slide-03.jpg);">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+							<div class="layer-slick1 animated visible-false" id="cheer" data-appear="rotateInDownLeft" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
 									정처기준비 2025
 								</span>
@@ -32,3 +32,27 @@
 			</div>
 		</div>
 	</section>
+	
+	<script>
+	
+let userCheerPos=
+document.querySelector("#cheer");
+	
+let userCheerhtml=``;
+fetch('myinfo.do')
+.then(result => result.json())
+.then(result => {
+		console.log(result);
+	   
+		console.log(result.userName); 
+		userCheerhtml='<span class="ltext-101 cl2 respon2">'+'화이팅 '+result.userName+'!'+'</span>';
+		console.log(userCheerhtml);
+		userCheerPos.innerHTML=userCheerhtml;
+		
+	});	
+	
+	
+	
+	
+	</script>
+	

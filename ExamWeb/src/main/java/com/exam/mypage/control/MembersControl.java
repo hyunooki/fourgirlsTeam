@@ -26,16 +26,13 @@ public class MembersControl implements Control {
 		// 멤버객체를 모두 받아오기
 		SqlSession sqlSession = DataSource.getInstance().openSession();
 		MypageMapper mapper = sqlSession.getMapper(MypageMapper.class);
-
+		
 		List<MemberVo> members = mapper.members();
 		System.out.println(members);
-
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(members);
-		System.out.println(json);
-		resp.getWriter().print(json);
-		
-
+        resp.getWriter().print(json);		
+        
 	}
-
 }
