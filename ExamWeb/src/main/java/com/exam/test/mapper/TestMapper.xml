@@ -20,7 +20,7 @@
 		from members
 		where user_id= #{id}
 		and password= #{pw}
-
+		and OUT_TYPE='no'
 	</select>
 
 	<select id="mypageInfo" resultType="member"

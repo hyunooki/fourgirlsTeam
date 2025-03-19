@@ -54,7 +54,7 @@ body {
 					</c:when>
 					<c:otherwise>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> 자주하는질문</a>
+						<a href="qnaList.do" class="flex-c-m trans-04 p-lr-25"> 자주하는질문</a>
 					</c:otherwise>
 				</c:choose>
 
@@ -98,7 +98,7 @@ body {
 							<li><a href="home-03.html">Homepage 3</a></li>
 						</ul>--></li>
 
-					<li><a href="product.html">QNA</a></li>
+					<li><a href="qnaList.do">QNA</a></li>
 					<c:choose>
 						<c:when test="${userType=='user' }">
 							<li class="label1"><a href="shoping-cart.html">장바구니</a></li>
@@ -148,7 +148,6 @@ body {
 					class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart">
 				 	<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
-			</c:if>
 
 			</div>
 		</nav>
@@ -156,5 +155,5 @@ body {
 </div>
 
 <script>
-	console.log('테스트중...');
+	console.log('테스트중...nnnffffffffffffnn');
 </script>

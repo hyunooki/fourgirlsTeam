@@ -66,6 +66,7 @@
 		where user_name=#{name}
 		and birth=#{birth}
 		and email=#{email}
+		and OUT_TYPE='no'
 	</select>
 
 	<select id="members" resultType="member">
