@@ -22,14 +22,25 @@ public class ProdInsertControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 2종류의 파일타입(multipart)
-		String saveDir = req.getServletContext().getRealPath("images");
-		MultipartRequest mr = new MultipartRequest(
-			req // 1.요청객체
-			,saveDir // 2.파일저장경로
-			,1024*1024*5 // 3.최대파일크기
-			, "utf-8"// 4.인코딩
-			,new DefaultFileRenamePolicy() // 5.리네임정책
-			);
+//		String saveDir = req.getServletContext().getRealPath("images");
+//		MultipartRequest mr = new MultipartRequest(
+//			req // 1.요청객체
+//			,saveDir // 2.파일저장경로
+//			,1024*1024*5 // 3.최대파일크기
+//			, "utf-8"// 4.인코딩
+//			,new DefaultFileRenamePolicy() // 5.리네임정책
+//			);
+		
+		// 2종류의 파일타입(multipart)
+				String pdfDir = req.getServletContext().getRealPath("file");
+				MultipartRequest mr = new MultipartRequest(
+					req // 1.요청객체
+					,pdfDir // 2.파일저장경로
+					,1024*1024*5 // 3.최대파일크기
+					, "utf-8"// 4.인코딩
+					,new DefaultFileRenamePolicy() // 5.리네임정책
+					);
+		
 		
 		
 		/* resp.setContentType("text/html;charset=utf-8"); */
@@ -40,6 +51,7 @@ public class ProdInsertControl implements Control {
 		int price = Integer.parseInt(mr.getParameter("price"));
 		int page = Integer.parseInt(mr.getParameter("page"));
 		String image = mr.getFilesystemName("image");
+		String pdf = mr.getFilesystemName("pdf");
 		
 		
 		ProdListVo prod = new ProdListVo();
@@ -49,6 +61,7 @@ public class ProdInsertControl implements Control {
 		prod.setPrice(price);
 		prod.setPage(page);
 		prod.setImage(image);
+		prod.setPdf(pdf);
 		
 		System.out.println(prodName);
 		System.out.println(content);
