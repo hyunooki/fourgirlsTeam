@@ -73,4 +73,11 @@
 		from members
 	</select>
 
+	<select id="outmembers" resultType="member">
+		select *
+		from members
+		where out_type='yes'
+	</select>
+
+
 </mapper>

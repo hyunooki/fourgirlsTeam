@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
     
     
  
@@ -65,13 +65,30 @@
                 <i class="fa fa-eye-slash" id="eye_icon_login"></i>
                 <input type="password" name="psw" class="form-control" id="login_password" onfocus="labelUp(this)" onblur="labelDown(this)" required />
               </div>
+              <!-- 로그인이 잘못되었을경우 -->
+              <c:choose>
+              
+					<c:when test="${result=='No' }">
+						<div class="alert alert-danger d-flex align-items-center"
+							role="alert">
+							<svg class="bi flex-shrink-0 me-2" width="24" height="24"
+								role="img" aria-label="Danger:">
+								<use xlink:href="#exclamation-triangle-fill" /></svg>
+							<p>로그인정보를 다시 확인해주세요</p>
+						</div>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
+              
+              
               <div class="form-group mb-0">
                 <button type="submit" class="btn btn-primary register_btn w-100">Sign In</button>
               </div>
             </form>
 
             <div class="already_member_box d-flex justify-content-between px-4">
-              <span class="text-center" id="to_signup">Create an account?</span>
+              <span class="text-center" id="to_signup"><a href="register.do">Create an account?</a></span>
               <span class="text-center"><a href="searchid.do">Forgot password</a></span>
             </div>
           </div>

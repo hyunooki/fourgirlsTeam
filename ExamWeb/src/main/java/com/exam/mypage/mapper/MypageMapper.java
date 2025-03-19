@@ -21,4 +21,5 @@ public interface MypageMapper {
 			              ,@Param("email") String email
 			              , @Param("birth") Date birth);
 	public List<MemberVo> members(); 
+	public List<MemberVo> outmembers(); //탈퇴멤버리스트 받아오기 
 }
