@@ -16,4 +16,12 @@ public interface AdminMapper {
 	public int deleteEvent(@Param("title") String title,
 				@Param("start") String start,
 				@Param("end") String end);
+	
+	public int todayMake();
+	
+	public int todayRelease();
+	
+	public int totalMember();
+	
+	public int todayStore();
 }
