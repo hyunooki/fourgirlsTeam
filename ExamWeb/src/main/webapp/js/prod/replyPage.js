@@ -84,18 +84,34 @@ function addLink() {
         });
     });
 }
-
 document.querySelector('#addReply').addEventListener('click',function(e){
-	let content = document.querySelector('#content>td').innerText;
-	fetch('replyAdd.do?pno'+pno+'&title='+title+'&writer='+logid+"&content="+content)
+	
+	let title = document.querySelector('#revTitle').value;
+	let content = document.querySelector('#content').value;
+	let star = document.querySelector('#star').value;
+	
+	
+	fetch('replyAdd.do?pno='+prodNo+'&revTitle='+title+'&starPoint='+star+'&revContent='+content)
    .then(result => result.json())
    .then(result =>{
 	   if(result.retCode=='OK'){
-		 swal("등록 성공","success")
+		 swal("등록 성공","success","success")
 		 page=1
 		 makeRow(page)
 	   }else{
-		swal("등록 실패","error")
+		swal("등록 실패","error","error")
 	   }
    })
 })
+
+document.querySelector('#cartButton').addEventListener('click', function(e){
+		fetch('addCart.do?pno='+prodNo)
+		.then(result => result.json())
+		   .then(result =>{
+			   if(result.retCode=='OK'){
+				 swal("등록 성공","success","success")
+			   }else{
+				swal("등록 실패","error","error")
+			   }
+		})
+	})

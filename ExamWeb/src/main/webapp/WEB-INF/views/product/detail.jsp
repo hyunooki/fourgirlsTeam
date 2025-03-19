@@ -49,11 +49,11 @@
 
 
 					<div style="display: inline-block">
-						<button
-							class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
+						<button type="button" id="cartButton"
+						 class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 "
 							style="margin: 10px">장바구니 담기</button>
-						<button
-							class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
+						<button type="button" id="payButton"
+							class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 "
 							style="margin: 10px">결제하기</button>
 					</div>
 				</div>
@@ -62,12 +62,12 @@
 		
 		<form>
 		<label>제목
-		<input type="text" id="revTitle" placeholder="제목" style="border:1px"></label>
+		<input type="text" id="revTitle" name="revTitle" placeholder="제목"></label>
 		<label>별점
-		<input type="text" id="star" placeholder="별점"></label>
+		<input type="text" id="star" name="starPoint" placeholder="별점"></label>
 		<label>내용
-		<input type="text" id="content" placeholder="내용"></label>
-		<button id="addReply" class="btn btn-primary">리뷰등록</button>
+		<input type="text" id="content" name="revContent" placeholder="내용"></label>
+		<button type="button" id="addReply" class="btn btn-primary">리뷰등록</button>
 		</form>	
 		
 		<table class="display table" style="width:95%; margin:auto;">

@@ -22,7 +22,14 @@
 	SELECT COUNT(1) cnt 
 	FROM PRODUCTS  p JOIN PAYMENTS p2 ON p.prod_no = p2.prod_no
 							JOIN PRODREPLY p3 ON p2.pay_no = p3.pay_no
-	WHERE p2.prod_no = #{prod} 
+	WHERE p2.prod_no = #{prodNo} 
+	
+	</select>
+
+	<select id="payOK" parameterType="com.exam.product.vo.ReplyVO" resultType="int">
+	SELECT COUNT(*)
+	FROM payments
+	WHERE prod_no=#{prodNo} AND user_id=#{userId}
 	</select>
 	
 	<insert id="replyAdd" parameterType="com.exam.product.vo.ReplyVO">
@@ -31,14 +38,24 @@
 						  rev_title, 
 						  rev_create, 
 						  rev_content, 
-						  uer_id)
+						  user_id,
+						  pay_no)
 		VALUES(
-				(SELECT MAX(NAL(prodreply.rev_no,0))), 
-				#{revTitle}, 
+				(SELECT NVL(MAX(rev_no),0) + 1 FROM prodreply), 
 				#{starPoint}, 
+				#{revTitle}, 
 				sysdate, 
 				#{revContent}, 
-				#{userId}
-				)
+				#{userId},
+				 (SELECT MAX(pay_no)
+				  FROM payments
+				  WHERE user_id =#{userId} AND prod_no=#{prodNo}))
+	
 	</insert>
+	
+	<insert id="addCart" parameterType="com.exam.cart.vo.CartVO">
+	INSERT INTO carts(cart_no, user_id, prod_no)
+	VALUES((SELECT NVL(MAX(cart_no),0) + 1 FROM carts), #{userId}, #{prodNo})
+	</insert>
+	
 </mapper>
