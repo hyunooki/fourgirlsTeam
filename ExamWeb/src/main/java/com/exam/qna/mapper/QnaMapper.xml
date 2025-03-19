@@ -6,8 +6,21 @@
  
  <select id="qnaList" parameterType="com.exam.qna.vo.SearchVO" resultType="com.exam.qna.vo.QnaVO">
  	SELECT qna_table.*
-   FROM(SELECT /*+ INDEX_DESC (r PK_QNAREPLY)*/
-                ROWNUM rn,qna_no,
+   FROM(SELECT <choose>
+              <when test="orderBy.equals('')">
+              ROW_NUMBER() OVER (ORDER BY qna_no DESC) rn,
+              </when>
+               <when test="orderBy.equals('search')">
+               ROW_NUMBER() OVER (ORDER BY qna_cnt DESC) rn,
+              </when>
+               <when test="orderBy.equals('fast')">
+               ROW_NUMBER() OVER (ORDER BY qna_create DESC) rn,
+              </when>
+               <when test="orderBy.equals('last')">
+               ROW_NUMBER() OVER (ORDER BY qna_create ASC) rn,
+              </when>
+           </choose>
+                       qna_no,
                        qna_title,
                        qna_content,
                        qna_create,
@@ -37,20 +50,7 @@
             </when>
           </choose>
          </where>
-           <choose>
-              <when test="orderBy.equals('')">
-                ORDER BY qna_no DESC
-              </when>
-               <when test="orderBy.equals('search')">
-                ORDER BY qna_cnt DESC
-              </when>
-               <when test="orderBy.equals('fast')">
-                ORDER BY qna_create DESC
-              </when>
-               <when test="orderBy.equals('last')">
-                ORDER BY qna_create
-              </when>
-           </choose>
+           
          ) qna_table
     WHERE qna_table.rn >=(#{page}-1)*10+1
     AND qna_table.rn <![CDATA[<=]]> #{page}*10
@@ -153,4 +153,5 @@
      		#{qnaNo}
             )
  </insert>
+
 </mapper>

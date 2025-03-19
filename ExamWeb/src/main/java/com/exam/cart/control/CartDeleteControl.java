@@ -3,6 +3,7 @@ package com.exam.cart.control;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,7 +31,8 @@ public class CartDeleteControl implements Control {
 		CartVO param = new CartVO();
 		param.setCartNo(Integer.parseInt(cartNo));
 		param.setUserId(sessionId);
-
+        
+		
 		if (mapper.cartDelete(param) > 0) {
 			resp.getWriter().print("{\"retCode\" : \"OK\"}");
 		  }

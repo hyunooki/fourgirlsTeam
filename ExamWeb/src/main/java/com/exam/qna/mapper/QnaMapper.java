@@ -28,4 +28,6 @@ public interface QnaMapper {
  
  public int qnaReplyAdd(QnaVO param);
  
+ 
+ 
 }

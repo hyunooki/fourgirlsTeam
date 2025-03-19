@@ -12,4 +12,6 @@ public interface CartMapper {
 	public int cartDelete(CartVO param);
 	//결제등록
 	public int cartInto(PaymentVO param);
+	
+	public int cartCount(String userId);
 }

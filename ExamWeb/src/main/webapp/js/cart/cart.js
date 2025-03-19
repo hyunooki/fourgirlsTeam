@@ -64,7 +64,7 @@ ul.addEventListener('click', function (e) {
                     swal('장바구니', "삭제 성공", "success");
                     totalCnt();
                 } else {
-                    swal('에러', "다운로드 횟수를 초과하였습니다.", "error");
+                    swal('에러', "삭제실패", "error");
                 }
                 if (ul.children.length === 0) {
                     ul.innerHTML = '<li>장바구니가 비어있습니다.</li>';
@@ -112,8 +112,8 @@ function reset() {
     let requests = [];
 
     cartItems.forEach(function (item) {
-        let payNo = item.getAttribute('data-id');
-        let request = fetch('cartDelete.do?cartNo=' + payNo)
+        let cartNo = item.getAttribute('data-id');
+        let request = fetch('cartDelete.do?cartNo=' + cartNo)
             .then(result => result.json())
             .then(result => {
                 if (result.retCode !== 'OK') {
