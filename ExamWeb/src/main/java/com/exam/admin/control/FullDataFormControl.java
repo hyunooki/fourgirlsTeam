@@ -30,5 +30,4 @@ public class FullDataFormControl implements Control {
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			resp.getWriter().print(gson.toJson(list));	
 	}
-
 }

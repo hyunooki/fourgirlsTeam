@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
@@ -83,22 +84,22 @@
 		<div class="col-3 border-primary"> 
             <i class="bi bi-box float-end text-primary"></i>
             <b><p class="text-primary fs-6" id="jumun">금일 등록건수</p></b>
-              <b><p th:text="${todayOrder}+'건'"></p></b>
+              <b><p>${todayMake}개</p></b>
         </div>
         <div class="col-3 border-success"> 
             <i class="bi bi-truck float-end text-success"></i>
             <b><p class="text-success fs-6">금일 매출금액</p></b>
-             <b><p th:text="${todayRelease}+'건'"></p></b>
+            <b><p>${todayRelease}원</p></b>
         </div>
         <div class="col-3 border-secondary"> 
             <i class="bi bi-person-circle float-end text-secondary"></i> 
            <b><p class="text-secondary fs-6">총 회원수</p></b>
-           <b><p th:text="${todayMatRequired}+'건'"></p></b>
+           <b><p>${totalMember}명</p></b>
         </div>
         <div class="col-3 border-info"> 
             <i class="bi bi-people-fill float-end text-info"></i>
-            <b><p class="text-info fs-6">금일 생산건</p></b>
-            <b><p th:text="${todayStore}+'건'"></p></b>
+            <b><p class="text-info fs-6">총 제품수</p></b>
+             <b><p>${todayStore}개</p></b>
         </div>
         <div class="col-12 border-danger"> 
 		<div id='calendar' class="w-75"></div>

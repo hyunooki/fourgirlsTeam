@@ -22,4 +22,24 @@
    		INSERT INTO calander (title,start_date,end_date)
    		VALUES (#{title},#{start},#{end})
    	</insert>
+   	
+   	<select id="todayMake" parameterType="int">
+   	  SELECT count(*)
+		FROM products
+	   WHERE create_date = sysdate
+   	</select>
+   	<select id="todayRelease" parameterType="int">
+   	 SELECT NVL(sum(price),0)
+	 FROM payments 
+	 WHERE pay_date = sysdate
+   	</select>
+   	<select id="totalMember" parameterType="int">
+   	  SELECT count(*)
+	  FROM members
+	  WHERE user_type='user'
+   	</select>
+   	<select id="todayStore" parameterType="int">
+   	  SELECT count(*)
+  	  FROM products
+   	</select>
 </mapper>
