@@ -42,6 +42,7 @@ body {
 			<div class="right-top-bar flex-w h-full">
 				<c:choose>
 					<c:when test="${empty loginId }">
+						<a href="searchid.do" class="flex-c-m trans-04 p-lr-25">id,pw찾기</a>
 						<a href="register.do" class="flex-c-m trans-04 p-lr-25"> 회원가입 </a>
 					</c:when>
 					<c:otherwise>
@@ -108,15 +109,9 @@ body {
                   
                   </c:otherwise>
                     </c:choose>
-					
 					<!-- <li class="testpaper"><a href="qnaList.do">QNA</a></li> -->
-
-
-
-
 				</ul>
 			</div>
-
 			<!-- Icon header -->
 			<div class="wrap-icon-header flex-w flex-r-m">
 				<div
