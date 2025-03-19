@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
+
+
 <section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">

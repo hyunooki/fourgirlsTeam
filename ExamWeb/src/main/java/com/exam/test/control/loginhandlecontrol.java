@@ -57,7 +57,8 @@ public class loginhandlecontrol implements Control {
 					req.setAttribute("result", "No");
 					System.out.println("id,pw 확인");
 					System.out.println("아이디비번틀림");
-					req.getRequestDispatcher("eun/login.tiles").forward(req, resp);
+					//req.getRequestDispatcher("eun/login.tiles").forward(req, resp);
+					req.getRequestDispatcher("/WEB-INF/views/eun/login1.jsp").forward(req, resp);
 				}
 			}		
 	}

@@ -87,7 +87,7 @@
       <th scope="col">상품번호</th>
       <th scope="col">상품이름</th>
       <th scope="col">가격</th>
-      <th scope="col">(사진?)</th>
+      <th scope="col">사진</th>
     </tr>
   </thead>
   <tbody id="cartstable">
@@ -115,12 +115,12 @@
     </tr> 
   </thead>
   <tbody id="paymenttable">
-  <!-- payment내역들어가는곳 -->  
+  <!-- payment 내역들어가는곳 -->  
   </tbody>
 </table>
 	<div class="payment">
 	<button class="btn btn-primary d-inline-flex align-items-center" type="button">
-    결제->
+           결제->
     <svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right-short"></use></svg>
   </button>
   </div>

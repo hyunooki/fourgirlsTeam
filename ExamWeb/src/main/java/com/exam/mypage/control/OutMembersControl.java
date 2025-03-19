@@ -16,23 +16,22 @@ import com.exam.test.vo.MemberVo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class MembersControl implements Control {
+public class OutMembersControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/json;charset=utf-8");
-		// 멤버객체를 모두 받아오기
+		//탈퇴회원 전체 받아오기 
 		SqlSession sqlSession = DataSource.getInstance().openSession();
 		MypageMapper mapper = sqlSession.getMapper(MypageMapper.class);
 		
-		List<MemberVo> members = mapper.members();
-		//System.out.println(members);
+		List<MemberVo> outmembers=mapper.outmembers(); //탈퇴한 회원리스트를 받아옴
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(members);
+		String json = gson.toJson(outmembers);
         resp.getWriter().print(json);		
-        
+		
 	}
+
 }

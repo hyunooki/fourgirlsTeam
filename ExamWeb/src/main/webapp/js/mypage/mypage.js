@@ -35,8 +35,10 @@ fetch('mypageqna.do')
 		for (let i = 0; result.length; i++) {
 			qnahtml = `
 			<tr>
-			     <th scope="row">${result[i].qnaNo}</th>
-			     <td>${result[i].qnaTitle}</td>
+			     <td>${result[i].qnaNo}</td>
+			     <td>
+				 <a href="qnaDetail.do?qno=${result[i].qnaNo}"> ${result[i].qnaTitle}</a> 
+				 </td>
 			     <td>${result[i].qnaCreate}</td>
 			     <td>${result[i].categoryName}</td>
 			</tr>`;
@@ -45,9 +47,8 @@ fetch('mypageqna.do')
 			   
 		}//for문 반복 
 	})
-	
-	//carts
-	
+		
+//carts	
 fetch('mypagecarts.do')
       .then(result => result.json())
 	  .then(result =>{	 
@@ -56,13 +57,16 @@ fetch('mypagecarts.do')
 			cartshtml=`
 			            <tr class=cart_${result[i].prodNo}>
 						     <th scope="row" >${result[i].prodNo}</th>
-						    <td> <a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a></td>
+						    <td>
+							 <a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a>
+							</td>
 						     <td>${result[i].price}</td>
-						     <td>${result[i].image}</td>
+						     
+							 <img src="file/${result[i].image}" alt="IMG-PRODUCT" >
 						</tr>
 			`;
 		cartsbox.insertAdjacentHTML('beforeend',cartshtml);	
-		console.log('3월18일테스트중...');	
+		console.log('3월19일.....! 마이페이지카트테스트');	
 		}
 		
 		
@@ -77,7 +81,9 @@ fetch('mypagecarts.do')
 				payhtml=`
 				         <tr>
 							<th scope="row">${result[i].prodNo}</th>
-						    <td>${result[i].prodName}</td>
+						    <td>
+							<a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a>
+							</td>
 						    <td>${result[i].price}</td>
 							<td>${result[i].payDate}</td>
 							<td>${result[i].pdf}</td>

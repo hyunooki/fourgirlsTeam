@@ -27,6 +27,7 @@ import com.exam.mypage.control.MembersControl;
 import com.exam.mypage.control.MyCartsControl;
 import com.exam.mypage.control.MyPaymentControl;
 import com.exam.mypage.control.MyQnaControl;
+import com.exam.mypage.control.OutMembersControl;
 import com.exam.mypage.control.SearchIdControl;
 import com.exam.mypage.control.SearchIdhandleControl;
 import com.exam.mypage.control.SignoutControl;
@@ -143,7 +144,8 @@ public class FrontController extends HttpServlet{
 		map.put("/signout.do", new SignoutControl());//회원탈퇴
 		map.put("/searchid.do", new SearchIdControl());//아이디 비밀번호 찾기
 		map.put("/searchidhandle.do", new SearchIdhandleControl());
-		map.put("/members.do", new MembersControl());		
+		map.put("/members.do", new MembersControl());
+		map.put("/outmembers.do", new OutMembersControl());
 		
 		
 		// 민영

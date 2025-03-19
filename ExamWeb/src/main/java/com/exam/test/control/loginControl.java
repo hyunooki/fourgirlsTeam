@@ -13,7 +13,6 @@ public class loginControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
 		//로그인화면 이동 
 		//req.getRequestDispatcher("eun/login.tiles").forward(req, resp);
 		req.getRequestDispatcher("/WEB-INF/views/eun/login1.jsp").forward(req, resp);

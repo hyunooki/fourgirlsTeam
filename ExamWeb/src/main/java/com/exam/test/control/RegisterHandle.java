@@ -23,10 +23,12 @@ public class RegisterHandle implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (req.getMethod().equals("POST")) {
-			//
+			
 			System.out.println("회원가입 컨트롤러 실행중....");
+			
+			req.setCharacterEncoding("utf-8");
+			resp.setContentType("text/json;charset=utf-8");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 			String id = req.getParameter("id");
 			String password = req.getParameter("password");
 			String phone = req.getParameter("phone");
