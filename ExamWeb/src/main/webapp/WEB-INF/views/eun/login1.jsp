@@ -55,7 +55,7 @@
               <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
             </div>
             <!--title-->
-            <form method="post"  action="loginhandle.do" name="form" class="form  w-100 p-4" id="form">
+            <form method="post"  action="loginhandle.do" name="form" id="form" class="form  w-100 p-4" id="form">
               <div class="form-group">
                 <label for="id">id</label>
                 <input type="text" name="uname" class="form-control" id="id" onfocus="labelUp(this)" onblur="labelDown(this)" required />
@@ -67,7 +67,6 @@
               </div>
               <!-- 로그인이 잘못되었을경우 -->
               <c:choose>
-              
 					<c:when test="${result=='No' }">
 						<div class="alert alert-danger d-flex align-items-center"
 							role="alert">
@@ -110,7 +109,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <!--Custom Js-->
   <script type="text/javascript" src="js/app.js"></script>
-
+ <script type="text/javascript" src="js/login/login.js"></script>
 </body>
 
 </html>
