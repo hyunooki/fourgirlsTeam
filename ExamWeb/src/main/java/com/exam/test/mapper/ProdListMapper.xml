@@ -44,10 +44,10 @@
 
 	<insert id="ProdInsert" parameterType="prodvo">
 		insert into products
-		(prod_no, prod_name, content, user_id, price, page, image)
+		(prod_no, prod_name, content, user_id, price, page, image, pdf)
 		values((select
 		max(prod_no) +1 from products),
-		#{prodName},#{content},#{userId},#{price},#{page},#{image})
+		#{prodName},#{content},#{userId},#{price},#{page},#{image},#{pdf})
 	</insert>
 
 	<select id="totalPage" parameterType="String" resultType="int">
