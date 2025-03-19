@@ -32,4 +32,9 @@
        					   pay_type)
       VALUES(#{payNo},#{prodNo},sysdate,#{userId},'ready')
     </insert>
+     <select id="cartCount" parameterType="String" resultType="int">
+  		 SELECT count(*)
+		   FROM carts
+		   WHERE user_id=#{userId}
+ 	</select>
   </mapper>

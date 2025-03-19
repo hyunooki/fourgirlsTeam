@@ -1,7 +1,6 @@
 package com.exam.test.control;
 
 import java.io.IOException;
-import java.lang.reflect.Member;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,10 +9,11 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.exam.cart.mapper.CartMapper;
+import com.exam.cart.vo.CartVO;
 import com.exam.common.Control;
 import com.exam.test.mapper.TestMapper;
 import com.exam.test.vo.MemberVo;
-import com.exam.test.vo.TestVo;
 
 
 public class loginhandlecontrol implements Control {
@@ -28,6 +28,11 @@ public class loginhandlecontrol implements Control {
 				// 로그인체크
 				SqlSession sqlSession=com.exam.common.DataSource.getInstance().openSession(); 
 				TestMapper mapper=sqlSession.getMapper(TestMapper.class); 
+				//cartVO
+				SqlSession sqlSession1=com.exam.common.DataSource.getInstance().openSession(); 
+				CartMapper mapper1=sqlSession1.getMapper(CartMapper.class);
+				
+				int cartCount =mapper1.cartCount(id);
 				
 				
 				//MemberDAO mdao = new MemberDAO();
@@ -44,6 +49,7 @@ public class loginhandlecontrol implements Control {
 					HttpSession session = req.getSession();
 					session.setAttribute("loginId", id); // attribute활용 ->mvo의 id파라미터를 loginId에 받음
 					session.setAttribute("userType",userType );
+					session.setAttribute("cartCount",cartCount);
 					//일반사용자 or 관리자 
 					if(member.getUserType().equals("admin")) {
 						
