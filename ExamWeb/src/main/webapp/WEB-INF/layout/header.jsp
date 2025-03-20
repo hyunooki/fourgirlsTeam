@@ -92,7 +92,7 @@ body {
 			<!-- Menu desktop -->
 			<div class="menu-desktop">
 				<ul class="main-menu">
-					<li class="active-menu"><a href="prodList.do">시험지구매</a> <!--  <ul class="sub-menu">
+					<li class="menu"><a href="prodList.do">시험지구매</a> <!--  <ul class="sub-menu">
 							<li><a href="index.html">Homepage 1</a></li>
 							<li><a href="home-02.html">Homepage 2</a></li>
 							<li><a href="home-03.html">Homepage 3</a></li>
