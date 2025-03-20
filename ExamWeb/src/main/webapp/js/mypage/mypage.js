@@ -57,7 +57,7 @@ fetch('mypagecarts.do')
 			cartshtml=`
 			            <tr class=cart>
 						    <th scope="row" >${result[i].prodNo}</th>
-							 <img src="file/${result[i].image}" alt="IMG-PRODUCT" >
+							 <img src="images/cart/${result[i].image}" alt="IMG-PRODUCT" >
 						    <td>
 							 <a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a>
 							</td>
@@ -115,6 +115,11 @@ qnaboard.addEventListener('click',function(e){
 	location.href='qnaList.do';
 })
 
+//결제페이지이동
+let paymentboard=document.querySelector("body > div:nth-child(7) > div > button"); 
+paymentboard.addEventListener('click',function(e){
+	location.href='paymentForm.do';
+})
 
 //상품제목을 눌렀을때 상세페이지 이동 
 /*document.querySelectorAll('#cartstable tr').addEventListener('click',function(){
