@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+	.block2-pic>img{
+		height:270px; 
+		width:200px; 
+		!important;
+	}
+</style>
 <div class="bg0 m-t-23 p-b-140">
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52 mt-5">
@@ -25,11 +32,12 @@
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
 					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04" onclick="search()">
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
 							<i class="zmdi zmdi-search"></i>
 						</button>
 
-						<input id="inputValue" class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+						<input id="inputValue" class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search"
+						onkeypress="search(event)">
 					</div>	
 				</div>
 
@@ -118,8 +126,7 @@
 							</div>
 
 							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									${prodList.count}
+								<a class="btn-addwish-b2 dis-block pos-relative "><i class="zmdi zmdi-eye"></i>   ${prodList.count}
 								</a>
 							</div>
 						</div>
@@ -181,9 +188,13 @@
 		</div>
 	</div>
 	
+
 	<script>
-	    function search(){
-		let inputValue = document.getElementById('inputValue').value;
+	    function search(e){
+	    	let inputValue = document.getElementById('inputValue').value;
+	    	let code = e.code;
+	    	if(e.keyCode === 13){
 		location.href = "http://localhost/ExamWeb/prodList.do?name=" + inputValue;
 	    }
+	   }
 	</script>

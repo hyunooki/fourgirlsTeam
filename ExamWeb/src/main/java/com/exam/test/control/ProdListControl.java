@@ -20,6 +20,10 @@ public class ProdListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		SqlSession session = DataSource.getInstance().openSession(true);
+		ProdListMapper mapper = session.getMapper(ProdListMapper.class);
+		
 		String page = req.getParameter("page");
 		String name = req.getParameter("name");
 		if(name == null) {
@@ -42,13 +46,6 @@ public class ProdListControl implements Control {
 		System.out.println("------------------------------");
 		System.out.println(asc);
 		System.out.println(priceAsc);
-		
-		
-		
-		
-	
-		SqlSession session = DataSource.getInstance().openSession(true);
-		ProdListMapper mapper = session.getMapper(ProdListMapper.class);
 		
 		
 		ProdListVo item = new ProdListVo();
