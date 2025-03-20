@@ -51,7 +51,7 @@
 				 (SELECT MAX(pay_no)
 				  FROM payments
 				  WHERE user_id =#{userId} AND prod_no=#{prodNo}))
-	
+	 
 	</insert>
 	
 	<insert id="addCart" parameterType="com.exam.cart.vo.CartVO">
