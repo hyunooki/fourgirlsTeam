@@ -17,11 +17,11 @@ document.querySelector('#sendemail').addEventListener('click', function(e) {
 		.then(result => {
 			console.log(result);
 			let members = result;
-			console.log('멤버리스트');
+			console.log('멤버리스트>>....');
 			console.log(members);
 			for (let member of members) {
 				console.log(member.email);
-				if (member.email == email) {
+				if (member.email == email &&member.userName==name) {
 					password = member.password;
 					name = member.userName;
 					exist = true;					
@@ -49,4 +49,10 @@ document.querySelector('#sendemail').addEventListener('click', function(e) {
 			}
 		});
 })
+
+
+
+
+
+
 

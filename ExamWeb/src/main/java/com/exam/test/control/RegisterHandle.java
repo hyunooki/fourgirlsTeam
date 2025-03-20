@@ -77,7 +77,7 @@ public class RegisterHandle implements Control {
 				}
 			} else if (checkOverlap > 0) {
 				session.setAttribute("checkOverlap", checkOverlap);
-				req.getRequestDispatcher("eun/register2.tiles").forward(req, resp);
+				req.getRequestDispatcher("eun/register3.tiles").forward(req, resp);
 				System.out.println("중복된 아이디가 있음 ");
 			}
 
