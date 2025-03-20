@@ -43,16 +43,15 @@
                     <td colspan="9" align="center">
                         <button class="btn btn-danger" type="button" id="deleteBtn">삭제</button>
                     </td>
-                </tr>
-                <c:if test="${msg != null}">
-                    <tr>
-                        <td colspan="9" align="center"><span style="color: red;">${msg }</span></td>
-                    </tr>
-                </c:if>
-            </table>
-  
+                </tr>            
+                <tr>
+                <td colspan="9">
 			<input type="text" id="reply" class="col-sm-9" placeholder="댓글을 입력하세요">
 			<button id="addReply" class="btn btn-primary">댓글등록</button>
+			</td>
+			</tr>
+            </table>
+  
 	
         <table id="example" class="display table" style="width:100%">
        
