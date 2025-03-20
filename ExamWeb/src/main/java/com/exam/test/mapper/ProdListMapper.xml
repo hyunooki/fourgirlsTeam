@@ -35,11 +35,12 @@
 						count,
 						user_id,
 						category_no 
-			  FROM products ) a
+			  FROM products ) a 
+			  where
 			  <if test="!prodName.equals('')"> 
-			  where prod_name like '%' ||#{prodName} || '%'
+			  prod_name like '%' ||#{prodName} || '%' and
 			  </if>
-			WHERE a.rn>(#{page}- 1)*8
+			  a.rn>(#{page}- 1)*8
 		AND a.rn <![CDATA[<=]]> #{page} *8	</select>
 
 	<insert id="ProdInsert" parameterType="prodvo">

@@ -21,15 +21,9 @@ public class ProdInsertControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 2종류의 파일타입(multipart)
-//		String saveDir = req.getServletContext().getRealPath("images");
-//		MultipartRequest mr = new MultipartRequest(
-//			req // 1.요청객체
-//			,saveDir // 2.파일저장경로
-//			,1024*1024*5 // 3.최대파일크기
-//			, "utf-8"// 4.인코딩
-//			,new DefaultFileRenamePolicy() // 5.리네임정책
-//			);
+		
+		SqlSession sqlsession = DataSource.getInstance().openSession(true); 
+		ProdListMapper mapper = sqlsession.getMapper(ProdListMapper.class);
 		
 		// 2종류의 파일타입(multipart)
 				String pdfDir = req.getServletContext().getRealPath("file");
@@ -69,8 +63,6 @@ public class ProdInsertControl implements Control {
 		System.out.println(price);
 		System.out.println(page);
 		System.out.println(image);
-		SqlSession sqlsession = DataSource.getInstance().openSession(true); 
-		ProdListMapper mapper = sqlsession.getMapper(ProdListMapper.class);
 		
 		
 		mapper.ProdInsert(prod);
