@@ -59,7 +59,7 @@ public class PdfDownloadControl implements Control {
 		
 		List<String> path = new ArrayList<>();
 		for(int i=0; i<fileSplitList.length; i++) {
-			path.add("C:\\java\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\ExamWeb\\WEB-INF\\pdf\\"+fileSplitList[i]);
+			path.add(req.getServletContext().getRealPath("file\\"+fileSplitList[i]));
 		}
 		
 	
@@ -67,7 +67,7 @@ public class PdfDownloadControl implements Control {
         
 
         // 압축할 ZIP 파일을 저장할 경로 지정
-        String zipFilePath = "C:\\Users\\User\\Downloads\\pdf_files.zip";
+        String zipFilePath = "C:\\temp\\pdf_files.zip";
 
         // ZIP 파일을 생성하기 위한 FileOutputStream과 ZipOutputStream 생성
         try (FileOutputStream fos = new FileOutputStream(zipFilePath);

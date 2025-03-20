@@ -12,7 +12,7 @@ cartEvent.addEventListener('click', function () {
                 cartUl.innerHTML += `
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img" data-id="${item.cartNo}" data-prod="${item.prodNo}">
-                            <img src="images/cart/${item.image}" alt="IMG">
+                            <img src="file/${item.image}" alt="IMG">
                         </div>
                         <div class="header-cart-item-txt p-t-8">
                             <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">

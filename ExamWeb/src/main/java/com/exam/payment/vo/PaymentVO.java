@@ -15,4 +15,5 @@ public class PaymentVO {
 	private String pdf;
 	private String categoryName;
 	private int downCnt;
+	private String image;
 }

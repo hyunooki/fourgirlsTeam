@@ -11,6 +11,7 @@
               p.prod_no,
               pay_date,
               pay_type,
+              image,
               p.user_id
         FROM payments p JOIN products r
                          ON(p.prod_no = r.prod_no)
@@ -41,6 +42,7 @@
               pdf,
               category_name,
               down_cnt,
+              image,
               p.user_id
         FROM payments p JOIN products r
                          ON(p.prod_no = r.prod_no)
