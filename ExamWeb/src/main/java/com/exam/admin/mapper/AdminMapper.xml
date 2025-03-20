@@ -29,9 +29,11 @@
 	   WHERE create_date = sysdate
    	</select>
    	<select id="todayRelease" parameterType="int">
-   	 SELECT NVL(sum(price),0)
-	 FROM payments 
-	 WHERE pay_date = sysdate
+   	 SELECT NVL(sum(r.price),0)
+	 FROM payments p JOIN products r
+                       ON(p.prod_no= r.prod_no)
+	 WHERE TO_DATE(p.pay_date,'rr/mm/dd') = TO_DATE(sysdate,'rr/mm/dd')
+     AND pay_type='success'
    	</select>
    	<select id="totalMember" parameterType="int">
    	  SELECT count(*)
