@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+.how-itemcart1>img{
+  width:100px !important;
+}
+</style>
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <div class="container">
@@ -24,17 +29,17 @@
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
 								<tr class="table_head">
-									<th class="column-3">사진</th>
-									<th class="column-2">상품명</th>
-									<th class="column-2">금액</th>
-									<th class="column-2">삭제</th>
+									<th class="column-3 text-center">사진</th>
+									<th class="column-2 text-center" >상품명</th>
+									<th class="column-2 text-center">금액</th>
+									<th class="column-2 text-center">삭제</th>
 								</tr>
 				
 							<c:forEach var="info" items="${list }">
 								<tr class="table_row " data-id=${info.payNo}>
 									<td class="column-3">
-										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+										<div class="how-itemcart1 text-center">
+											<img src="file/${info.image} " alt="IMG">
 										</div>
 									</td>
 									<td class="column-2">${info.prodName}</td>
