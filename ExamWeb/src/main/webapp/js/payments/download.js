@@ -39,7 +39,6 @@ let table = new DataTable('#example', {
             orderable: false
         },
         { data: 'prodName' },
-        { data: 'categoryName' },
         { data: 'payDate' },
         { data: 'pdf' },
         { data: 'downCnt' },
@@ -55,15 +54,15 @@ let table = new DataTable('#example', {
         {"className": "dt-center", "targets": "_all"},
         { width: 50, targets: 0 },
         { width: 100, targets: 1 },
-        { width: 100, targets: 2 },
-        { width: 100, targets: 3 },
-        { width: 100, targets: 4 },
-        { width: 100, targets: 5 }
+        { width: 200, targets: 2 },
+        { width: 300, targets: 3 },
+        { width: 200, targets: 4 },
+
     ]
   });
 
 //숨기기
-table.column(6).visible(false);
+table.column(5).visible(false);
 
 // 헤더 체크박스 클릭 시 모든 행 체크박스 선택/해제
 document.getElementById('checkall').addEventListener('change', function() {

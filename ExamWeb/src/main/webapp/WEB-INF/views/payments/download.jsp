@@ -22,7 +22,6 @@ h3{
             <tr>
               <th><input type="checkbox" name="checkall" id="checkall"></th>
                 <th>이름</th>
-                <th>카테고리</th>
                 <th>구매일</th>
                 <th>파일명</th>
                 <th>다운로드 횟수</th>

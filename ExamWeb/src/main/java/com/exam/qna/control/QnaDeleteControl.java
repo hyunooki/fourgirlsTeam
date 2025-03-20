@@ -22,7 +22,9 @@ public class QnaDeleteControl implements Control {
 		
 		String qno = req.getParameter("qno");
 		
+		
 		if(mapper.qnaDelete(Integer.parseInt(qno))>0) {
+			mapper.deleteReply(Integer.parseInt(qno));
 			 resp.getWriter().print("{\"retCode\" : \"OK\"}");
 		}else{
 			 resp.getWriter().print("{\"retCode\" : \"NG\"}");

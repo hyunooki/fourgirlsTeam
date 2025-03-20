@@ -37,7 +37,7 @@
                 </tr>
                 <tr id="content">
                     <th class="text-right">³»¿ë</th>
-                    <td colspan="8" class="text-left">${qna.qnaTitle}</td>
+                    <td colspan="8" class="text-left">${qna.qnaContent}</td>
                 </tr>
                 <tr>
                     <td colspan="9" align="center">

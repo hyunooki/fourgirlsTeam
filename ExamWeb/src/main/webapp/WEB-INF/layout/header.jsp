@@ -103,6 +103,7 @@ body {
 						<c:when test="${userType=='user' }">
 							<li class="label1"><a href="shoping-cart.html">장바구니</a></li>
 							<li class="label1"><a href="mypage.do">마이페이지</a></li>
+							<li class="testpaper"><a href="downloadPage.do">결제품목</a></li>
 						</c:when>
 					</c:choose>
 
@@ -112,6 +113,7 @@ body {
 
 							<li class="testpaper"><a href="adminMain.do">관리자페이지</a></li>
 							<li class="testpaper"><a href="prodInsertForm.do">시험지등록</a></li>
+							<li class="testpaper"><a href="downloadPage.do">결제품목</a></li>
 						</c:when>
 						<c:otherwise>
 
@@ -134,7 +136,7 @@ body {
 
 					<div
 						class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-						data-notify="2">
+					>
 						<i class="zmdi zmdi-shopping-cart"></i>
 					</div>
 				</c:if>
@@ -144,10 +146,6 @@ body {
 					data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
 				</a>
 
-				<div
-					class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart">
-				 	<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
 
 			</div>
 		</nav>
