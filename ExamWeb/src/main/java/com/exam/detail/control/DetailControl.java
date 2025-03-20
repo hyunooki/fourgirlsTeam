@@ -28,7 +28,9 @@ public class DetailControl implements Control {
 		
 		ProductVO pro= mapper.productDetail(Integer.parseInt(param));
 		mapper.updateCount(Integer.parseInt(param));
+		int starPoint = mapper.starPoint(Integer.parseInt(param));
 		
+		pro.setStarPoint(starPoint);
 		
 		
 		System.out.println();

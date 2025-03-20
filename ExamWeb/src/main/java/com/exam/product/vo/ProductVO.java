@@ -1,6 +1,6 @@
 package com.exam.product.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 import lombok.Data;
 
@@ -11,10 +11,12 @@ public class ProductVO {
    private int price;
    private String content;
    private Date createDate;
-   private String img;
+   private String image;
    private String pdf;
    private int count;
    private String userId;
    private int page;
    private String categoryNo;
+   private int starPoint;
+   
 }

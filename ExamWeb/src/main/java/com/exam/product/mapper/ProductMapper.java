@@ -7,5 +7,9 @@ import com.exam.product.vo.ProductVO;
 public interface ProductMapper {
    
 	public ProductVO productDetail(int prod);
+	
 	public int updateCount(int prod);
+	
+	public int starPoint(int prod);
+	
 }

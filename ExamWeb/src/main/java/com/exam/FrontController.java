@@ -21,6 +21,7 @@ import com.exam.cart.control.CartToPaymentInsert;
 import com.exam.common.Control;
 import com.exam.detail.control.AddCartContol;
 import com.exam.detail.control.DetailControl;
+import com.exam.detail.control.DirectPayContol;
 import com.exam.detail.control.ReplyAddControl;
 import com.exam.detail.control.ReplyListControl;
 import com.exam.detail.control.ReplyPageContol;
@@ -157,6 +158,7 @@ public class FrontController extends HttpServlet{
 		map.put("/replypaging.do", new ReplyPageContol()); 
 		map.put("/replyAdd.do", new ReplyAddControl());
 		map.put("/addCart.do", new AddCartContol());
+		map.put("/directPay.do", new DirectPayContol());
 		
 		
 		
