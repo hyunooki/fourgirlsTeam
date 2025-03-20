@@ -153,5 +153,9 @@
      		#{qnaNo}
             )
  </insert>
-
+  
+  <delete id="deleteReply" parameterType="int">
+    DELETE FROM qnaReply
+    WHERE qna_no=#{qnaNo}
+  </delete>
 </mapper>
