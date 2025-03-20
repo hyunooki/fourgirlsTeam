@@ -36,6 +36,13 @@
     margin: auto;
 }
 
+#cartstable > img{
+  height:270px;
+  width:200px;
+  !important;
+}
+
+
 </style>
 
 
