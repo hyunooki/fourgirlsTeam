@@ -8,7 +8,15 @@
 		SELECT prod_no, prod_name, price, content, create_date, image, pdf, count,
 		user_id, page, category_no
 		FROM products
-		WHERE prod_no= #{prodNo}
+		WHERE prod_no = #{prodNo}
+	</select>
+	
+	<select id="starPoint" resultType="int" parameterType="int">
+	SELECT NVL(round(AVG(NVL(star_point,0))),0)
+	FROM products d JOIN payments m ON d.prod_no = m.prod_no
+                 JOIN prodreply r ON m.pay_no = r.pay_no
+	WHERE d.prod_no = #{prodNo}
+	
 	</select>
 
 	<update id="updateCount" parameterType="int">

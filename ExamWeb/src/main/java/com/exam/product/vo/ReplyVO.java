@@ -14,4 +14,6 @@ public class ReplyVO {
 	private String userId;
 	private int payNo;
 	private int page;
+	private String image;
+	
 }

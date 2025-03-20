@@ -9,7 +9,8 @@
     	    
 		SELECT prodreply_table.* 
 		FROM(
-			SELECT rownum rn, p3.rev_no, p3.star_point, p3.rev_title, p3.rev_create,
+			SELECT ROW_NUMBER() OVER (ORDER BY rev_create DESC) rn
+			       , p3.rev_no, p3.star_point, p3.rev_title, p3.rev_create,
 					p3.rev_content, p3.user_id, p3.pay_no
 			FROM PRODUCTS p JOIN PAYMENTS p2 ON p.prod_no = p2.prod_no
 							JOIN PRODREPLY p3 ON p2.pay_no = p3.pay_no
@@ -58,4 +59,9 @@
 	VALUES((SELECT NVL(MAX(cart_no),0) + 1 FROM carts), #{userId}, #{prodNo})
 	</insert>
 	
+	<insert id="directPay" parameterType="com.exam.payment.vo.PaymentVO">
+	INSERT INTO payments(pay_no, price, prod_no, pay_date, user_id, pay_type, down_cnt)
+	VALUES((SELECT NVL(MAX(pay_no),0) + 1 FROM payments), 0, #{prodNo}, sysdate, #{userId}, 'ready', 0)
+	</insert>
+
 </mapper>
