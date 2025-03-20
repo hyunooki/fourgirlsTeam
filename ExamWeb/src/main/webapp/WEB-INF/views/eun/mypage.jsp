@@ -37,15 +37,11 @@
 }
 
 #cartstable > img{
-  height:270px;
-  width:200px;
+  height:200px;
+  width:150px;
   !important;
 }
-
-
 </style>
-
-
 
 <div class="bg-light p-5 rounded">
 	<h2 class="hinext"></h2>
@@ -93,8 +89,9 @@
     <tr>
       <th scope="col">상품번호</th>
       <th scope="col">상품이름</th>
-      <th scope="col">가격</th>
-      <th scope="col">사진</th>
+      <th scope="col">상품가격</th>
+      <th scope="col">#</th>
+    
     </tr>
   </thead>
   <tbody id="cartstable">
@@ -116,6 +113,7 @@
     <tr>
       <th scope="col">상품번호</th>
       <th scope="col">상품이름</th>
+      <th scope="col">상품가격</th>
       <th scope="col">결제날짜</th>
       <th scope="col">pdf</th>
       <th scope="col">카테고리네임</th>
@@ -132,9 +130,5 @@
   </button>
   </div>
 </div>
-
-
-
-
 
 <script src="js/mypage/mypage.js"></script>

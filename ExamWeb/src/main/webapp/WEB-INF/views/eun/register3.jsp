@@ -258,8 +258,6 @@ header input {
 
 </style>
 
-
-
 <form action="registerhandle.do" method="post">
 <div class="form-container">
 <h3>회원가입</h3>
@@ -298,7 +296,7 @@ header input {
 
     <div class="form-group">
         <label for="nickname">이메일</label>
-        <input type="text" class="form-control"name="email" id="email" required="">
+        <input type="email" class="form-control"name="email" id="email" required="">
     </div>
     
       <div class="form-group">
@@ -307,22 +305,55 @@ header input {
     </div>
      
     
+
      <div class="form-group">
+        <label for="address">우편번호</label>
+        <input type="text" class="form-control" name="postcode"  id="postcode" placeholder="우편번호" required="">
+    </div> 
+      <div class="form-group">
         <label for="address">주소</label>
-        <input type="text" class="form-control" name="address"id="address" required="">
-    </div>
+        <input type="text" class="form-control" name="address"  id="address" placeholder="주소" required="">
+    </div> 
+      <div class="form-group">
+        <label for="detailAddress">상세주소</label>
+        <input type="text" class="form-control" name="detailAddress"  id="detailAddress" placeholder="주소" required="">
+    </div> 
+    <button type="button" onclick="execDaumPostcode()" class="btn btn-success">주소찾기</button> 
+
+    
+  <!-- <label>우편번호</label>
+    <input type="text" id="postcode" placeholder="우편번호">
+  
+    
+    <label>주소</label>
+    <input type="text" id="address" placeholder="주소">
+    
+    <label>상세주소</label>
+    <input type="text" id="detailAddress" placeholder="상세주소">  --> 
+
     
     <div class="form-group">
         <label for="phone">전화번호</label>
-        <input type="text" class="form-control" name="phone" id="phone" required="">
+        <input type="tel" class="form-control" name="phone" id="phone" required="">
     </div>
     
 </div>
-<button class="btn btn-primary d-inline-flex align-items-center" type="submit">
+<button id="regbutton" class="btn btn-primary d-inline-flex align-items-center" type="submit">
     회원가입신청
     <svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right-short"></use></svg>
   </button>
 </form>
 
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
 
-<script src="js/register.js"></script>
+            document.getElementById('postcode').value = data.zonecode; 
+            document.getElementById('address').value = data.roadAddress; 
+        }
+    }).open();
+}
+</script>
+<script src="js/test/testapi.js"></script>

@@ -12,7 +12,7 @@
 		<div class="row">
 		<!-- 	<h3>이름</h3> -->
 			<div class="col-6">
-				<label for="name-field" class="pb-2">Your Name</label> 
+				<label for="name-field" class="pb-2">이름</label> 
 			</div>
 			<div class="col-6">
 			<input
@@ -23,7 +23,7 @@
 		<div class="row">
 			<!-- <h3>이메일</h3> -->
 			<div class="col-6">
-				<label for="email-field" class="pb-2">Your Email</label>
+				<label for="email-field" class="pb-2">이메일</label>
 			</div>
 			<div class="col-6">
 			 <input
@@ -34,7 +34,7 @@
 		<div class="row">
 			<!-- <h3>날짜</h3> -->
 			<div class="col-6 ">
-				<label for="subject-field" class="pb-2">Subject</label>
+				<label for="subject-field" class="pb-2">생년월일</label>
 			</div>
 			<div class="col-6"> <input
 					type="date" class="form-control" name="birth" id="subject-field"

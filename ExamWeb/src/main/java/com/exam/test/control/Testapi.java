@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.exam.common.Control;
 
-public class RegisterControl implements Control {
+public class Testapi implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

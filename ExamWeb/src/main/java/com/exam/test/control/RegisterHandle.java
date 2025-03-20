@@ -71,7 +71,7 @@ public class RegisterHandle implements Control {
 
 				if (mapper.insertMember(member) > 0) {
 
-					resp.sendRedirect("main.do");
+					resp.sendRedirect("login.do");
 				} else {
 					System.out.println("회원가입실패");
 				}
