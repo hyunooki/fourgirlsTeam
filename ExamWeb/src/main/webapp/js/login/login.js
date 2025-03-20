@@ -7,6 +7,7 @@ console.log('login.js작동중');
  let pw=document.querySelector("#login_password").value;
  
  document.querySelector("#form > div.form-group.mb-0 > button").addEventListener('click',function(e){
+	alert('클리고');
 	fetch('outmembers.do')
 	       .then(result=> result.json())
 		   .then(result =>{

@@ -55,13 +55,12 @@ fetch('mypagecarts.do')
 		console.log(result); 
 		for(let i=0; result.length; i++){
 			cartshtml=`
-			            <tr class=cart_${result[i].prodNo}>
-						     <th scope="row" >${result[i].prodNo}</th>
+			            <tr class=cart>
+						    <th scope="row" >${result[i].prodNo}</th>
 						    <td>
 							 <a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a>
 							</td>
-						     <td>${result[i].price}</td>
-						     
+						     <td>${result[i].price}</td> 
 							 <img src="file/${result[i].image}" alt="IMG-PRODUCT" >
 						</tr>
 			`;
@@ -96,7 +95,7 @@ fetch('mypagecarts.do')
 	  	  })	
  
 signout.addEventListener('click',function(e){
-	swal('경고','정말탈퇴 하시겠습니까?');	
+	swal('주의','정말탈퇴 하시겠습니까?');	
     fetch('signout.do')	   
 	      .then(result => result.json())
 	      .then(result => {
