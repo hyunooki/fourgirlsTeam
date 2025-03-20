@@ -89,7 +89,7 @@
  
  <insert id="qnaAdd" parameterType="com.exam.qna.vo.QnaVO" >
     INSERT INTO qna 
-    VALUES((SELECT MAX(NVL(qna_no,0))+1 FROM qna),
+    VALUES((SELECT MAX(TO_NUMBER(NVL(qna_no,0)))+1 FROM qna),
              #{qnaTitle},
              #{qnaContent},
              sysdate,
@@ -123,7 +123,7 @@
          	  qna_no
        	   FROM qnareply 
       	   WHERE qna_no = #{qnaNo}
-      	   ORDER BY qna_revno DESC
+      	   ORDER BY TO_NUMBER(qna_revno) DESC
       	   ) a
      WHERE a.rn >=(#{page}-1)*5+1
    	 AND a.rn <![CDATA[<=]]> #{page}*5
@@ -146,7 +146,7 @@
                   		 qna_revdate,
                   		 qna_no)
      VALUES(
-     		(SELECT MAX(NVL(qna_revno,0))+1 FROM qnaReply), 
+     		(SELECT MAX(TO_NUMBER(NVL(qna_revno,0)))+1 FROM qnaReply), 
      		#{qnaContent},
      		#{userId},
      		sysdate,

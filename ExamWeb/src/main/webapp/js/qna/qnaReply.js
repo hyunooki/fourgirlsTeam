@@ -87,8 +87,10 @@ document.querySelector('#addReply').addEventListener('click',function(e){
 		return;
 	}
 	let content = document.querySelector('#reply').value;
-	console.log(content)
-	console.log(qno)
+	if(content.length==0){
+		swal('댓글을 입력하세요','error','error')
+		return;
+	}
 	fetch('qnaReplyAdd.do?qno='+qno+'&writer='+logid+"&content="+content)
    .then(result => result.json())
    .then(result =>{
