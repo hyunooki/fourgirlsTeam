@@ -1,4 +1,8 @@
 /**
+ * testapi 
+ * 
+ */
+/**
  * register.js 로그인활때 중복확인 하기
  */
 //중복
@@ -22,12 +26,12 @@ let nohtml=`
 
 //아이디 중복확인 덩어리 
 let checkoverlapId=document.querySelector("body > form > div > div:nth-child(2)");
- 
+let regbutton=document.querySelector("#regbutton");  
 let id=document.querySelector("#id");
 let checkOverlap=document.querySelector('body > form > div > div:nth-child(2) > button');
 checkOverlap.addEventListener('click',function(){
 	let show=document.querySelector("#overlap");
-	alert('클릭됨');
+	
 	if(show!=null){
 	console.log(show);
 	show.remove();
@@ -58,3 +62,4 @@ let check=0;
 			}			
 		 });
 });
+

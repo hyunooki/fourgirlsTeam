@@ -60,6 +60,7 @@ import com.exam.test.control.ProdListControl;
 import com.exam.test.control.RegisterControl;
 import com.exam.test.control.RegisterHandle;
 import com.exam.test.control.TestControl;
+import com.exam.test.control.Testapi;
 import com.exam.test.control.loginControl;
 import com.exam.test.control.loginhandlecontrol;
 
@@ -147,6 +148,7 @@ public class FrontController extends HttpServlet{
 		map.put("/searchidhandle.do", new SearchIdhandleControl());
 		map.put("/members.do", new MembersControl());
 		map.put("/outmembers.do", new OutMembersControl());
+		map.put("/test.api.do", new Testapi());
 		
 		
 		// 민영

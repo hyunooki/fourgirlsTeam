@@ -57,11 +57,11 @@ fetch('mypagecarts.do')
 			cartshtml=`
 			            <tr class=cart>
 						    <th scope="row" >${result[i].prodNo}</th>
+							 <img src="file/${result[i].image}" alt="IMG-PRODUCT" >
 						    <td>
 							 <a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a>
 							</td>
 						     <td>${result[i].price}</td> 
-							 <img src="file/${result[i].image}" alt="IMG-PRODUCT" >
 						</tr>
 			`;
 		cartsbox.insertAdjacentHTML('beforeend',cartshtml);	
