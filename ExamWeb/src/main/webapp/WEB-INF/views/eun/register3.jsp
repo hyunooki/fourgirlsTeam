@@ -267,13 +267,15 @@ header input {
         <button class="btn btn-primary rounded-pill px-3" type="button">중복확인</button>
         <c:choose>
         <c:when test="${checkOverlap > 0 }">
-        <div class="alert alert-danger d-flex align-items-center"
-							role="alert">
+     <!--   <div class="alert alert-danger d-flex align-items-center"
+							role="alert"
+							style="width: 200px; height: 38px; display: flex; align-items: center; justify-content: center; padding: 5px;
+              white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 							<svg class="bi flex-shrink-0 me-2" width="24" height="24"
 								role="img" aria-label="Danger:">
 								<use xlink:href="#exclamation-triangle-fill" /></svg>
 							<p>이미존재하는 아이디입니다</p>
-						</div>
+						</div>-->  
         </c:when>
        
         </c:choose>
@@ -286,7 +288,8 @@ header input {
 
     <div class="form-group">
         <label for="passwordcheck">비밀번호 확인</label>
-        <input type="password" class="form-control" name="" id="passwordcheck" required="비밀번호입력하세요">
+        <input type="password" class="form-control" name="passwordcheck" id="passwordcheck" required="비밀번호입력하세요">
+         <span id="message"><!-- 비밀번호 다를때 실시간확인--></span>
     </div>
 
     <div class="form-group">
@@ -356,4 +359,5 @@ function execDaumPostcode() {
     }).open();
 }
 </script>
+
 <script src="js/test/testapi.js"></script>

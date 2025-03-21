@@ -53,7 +53,7 @@ function paging() {
 
             // 페이지 번호 링크 생성
             for (let p = startPage; p <= endPage; p++) {
-                html = `<li class="page-item"><a class="page-link ${p == page ? 'active' : ''}" href="#" data-page="${p}">${p}</a></li>`;
+                html = `<li class="page-item ${p == page ? 'active' : ''}"><a class="page-link" href="#" data-page="${p}">${p}</a></li>`;
                 target.insertAdjacentHTML('beforeend', html);
             }
 
@@ -87,8 +87,10 @@ document.querySelector('#addReply').addEventListener('click',function(e){
 		return;
 	}
 	let content = document.querySelector('#reply').value;
-	console.log(content)
-	console.log(qno)
+	if(content.length==0){
+		swal('댓글을 입력하세요','error','error')
+		return;
+	}
 	fetch('qnaReplyAdd.do?qno='+qno+'&writer='+logid+"&content="+content)
    .then(result => result.json())
    .then(result =>{

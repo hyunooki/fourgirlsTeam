@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -63,11 +65,12 @@ public class PdfDownloadControl implements Control {
 		}
 		
 	
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+		String timestamp = sdf.format(new Date());
         
 
         // 압축할 ZIP 파일을 저장할 경로 지정
-        String zipFilePath = "C:\\temp\\pdf_files.zip";
+		String zipFilePath = "C:\\temp\\pdf_files_" + timestamp + ".zip";
 
         // ZIP 파일을 생성하기 위한 FileOutputStream과 ZipOutputStream 생성
         try (FileOutputStream fos = new FileOutputStream(zipFilePath);

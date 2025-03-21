@@ -7,22 +7,29 @@
  */
 //중복
 //사용가능할때 쓰는 html
-let infohtml=`
-<div id="overlap" class="w-25 h-25 d-inline-block alert alert-primary d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"></use></svg>
-  <div>
-  사용가능한 아이디입니다
-  </div>
-</div>`;
-
-let nohtml=`
-<div id="overlap" class="w-25 h-25 alert alert-danger d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"></use></svg>
-  <div>
-   이미존재하는 아이디입니다
-  </div>
+let infohtml = `
+<div id="overlap" class="d-inline-block alert alert-primary d-flex align-items-center" role="alert"
+    style="width: 240px; height: 38px; display: flex; align-items: center; justify-content: center;
+           padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+           font-size: 14px; border-radius: 5px;">
+ <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"></use></svg>
+ <div>
+   사용가능한 아이디입니다
+ </div>
 </div>
 `;
+let nohtml = `
+<div id="overlap" class="alert alert-danger d-flex align-items-center" role="alert"
+    style="width: 240px; height: 38px; display: flex; align-items: center; justify-content: center;
+           padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+           font-size: 14px; border-radius: 5px;">
+ <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"></use></svg>
+ <div>
+   이미 존재하는 아이디입니다
+ </div>
+</div>
+`;
+
 
 //아이디 중복확인 덩어리 
 let checkoverlapId=document.querySelector("body > form > div > div:nth-child(2)");
@@ -31,7 +38,6 @@ let id=document.querySelector("#id");
 let checkOverlap=document.querySelector('body > form > div > div:nth-child(2) > button');
 checkOverlap.addEventListener('click',function(){
 	let show=document.querySelector("#overlap");
-	
 	if(show!=null){
 	console.log(show);
 	show.remove();
@@ -62,4 +68,51 @@ let check=0;
 			}			
 		 });
 });
+
+function passwordcheck() {
+	let password = document.querySelector("#password").value;
+	let passwordcheck = document.querySelector("#passwordcheck").value;
+
+	let message = document.getElementById("message");
+
+	if (password === "") {
+		message.textContent = "";
+		return;
+	}
+
+	if (passwordcheck === "") {
+		message.textContent = "";
+	} else if (password !== passwordcheck) {
+		message.textContent = "비밀번호가 일치하지 않습니다";
+		message.style.color = "red";
+	}
+	else {
+		message.textContent = "비밀번호가 일치합니다";
+		message.style.color = "green";
+	}
+}
+
+document.querySelector("#password").oninput = passwordcheck;
+document.querySelector("#passwordcheck").oninput = passwordcheck;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
