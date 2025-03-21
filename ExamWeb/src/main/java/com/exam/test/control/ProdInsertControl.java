@@ -48,7 +48,7 @@ public class ProdInsertControl implements Control {
 		String pdf = mr.getFilesystemName("pdf");
 		
 		
-		ProdListVo prod = new ProdListVo();
+		ProdListVo prod = new ProdListVo(); // 내가 지정한 타입의 객체 생성.
 		prod.setProdName(prodName);
 		prod.setContent(content);
 		prod.setUserId(userId);
@@ -65,7 +65,8 @@ public class ProdInsertControl implements Control {
 		System.out.println(image);
 		
 		
-		mapper.ProdInsert(prod);
+		mapper.ProdInsert(prod); // 이 객체를 파라미터 값으로 넘겨서 인설트 처리.
+		
 		req.setAttribute("prod", prod); 
 		
 		
