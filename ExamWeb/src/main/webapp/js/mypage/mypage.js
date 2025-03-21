@@ -57,7 +57,7 @@ fetch('mypagecarts.do')
 			cartshtml=`
 			            <tr class=cart>
 						    <th scope="row" >${result[i].prodNo}</th>
-							 <img src="images/cart/${result[i].image}" alt="IMG-PRODUCT" >
+							 <img src="file/${result[i].image}" alt="IMG-PRODUCT" >
 						    <td>
 							 <a href="detail.do?pno=${result[i].prodNo}">${result[i].prodName}</a>
 							</td>
@@ -95,7 +95,7 @@ fetch('mypagecarts.do')
 	  	  })	
  
 signout.addEventListener('click',function(e){
-	swal('주의','정말탈퇴 하시겠습니까?');	
+	alert('회원탈퇴됩니다');
     fetch('signout.do')	   
 	      .then(result => result.json())
 	      .then(result => {

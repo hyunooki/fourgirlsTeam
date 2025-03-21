@@ -48,7 +48,8 @@
 	<div class="container">
 		<button class="btn btn-danger rounded-pill px-3" type="button">회원탈퇴</button>
 	</div>
-	<p class="lead"></p>
+	<p class="lead">
+	</p>
 
 </div>
 
@@ -124,10 +125,10 @@
   </tbody>
 </table>
 	<div class="payment">
-	<button class="btn btn-primary d-inline-flex align-items-center" type="button">
+	<!-- <button class="btn btn-primary d-inline-flex align-items-center" type="button">
            결제->
     <svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right-short"></use></svg>
-  </button>
+  </button> -->
   </div>
 </div>
 
