@@ -51,13 +51,13 @@
 
 							<ul>
 								<li class="p-b-6">
-									<a href="http://localhost/ExamWeb/prodList.do?asc=1" class="filter-link stext-106 trans-04">
+									<a href="prodList.do?asc=1" class="filter-link stext-106 trans-04">
 										오름차순
 									</a>
 								</li>
 
 								<li class="p-b-6">
-									<a href="http://localhost/ExamWeb/prodList.do?asc=0" class="filter-link stext-106 trans-04">
+									<a href="prodList.do?asc=0" class="filter-link stext-106 trans-04">
 										내림차순
 									</a>
 								</li>
@@ -72,13 +72,13 @@
 
 							<ul>
 								<li class="p-b-6">
-									<a href="http://localhost/ExamWeb/prodList.do?priceAsc=1" class="filter-link stext-106 trans-04 filter-link-active">
+									<a href="prodList.do?priceAsc=1" class="filter-link stext-106 trans-04 filter-link-active">
 										오름차순
 									</a>
 								</li>
 
 								<li class="p-b-6">
-									<a href="http://localhost/ExamWeb/prodList.do?priceAsc=0" class="filter-link stext-106 trans-04">
+									<a href="prodList.do?priceAsc=0" class="filter-link stext-106 trans-04">
 										내림차순
 									</a>
 								</li>
