@@ -16,7 +16,7 @@
 			</div>
 			<div class="col-6">
 			<input
-					type="text" name="name" id="name-field" class="form-control"
+					type="text" name="name" id="name" class="form-control"
 					required="">
 			</div>
 		</div>
