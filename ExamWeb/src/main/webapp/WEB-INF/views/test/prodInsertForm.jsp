@@ -86,7 +86,7 @@ button {
 		<div class="container">
 			<div class="form-container">
 			    <h2>상품 등록</h2><!-- enctype="multipart/form-data" -->
-			    <form action="http://localhost/ExamWeb/prodInsert.do" method="POST" enctype="multipart/form-data">
+			    <form action="prodInsert.do" method="POST" enctype="multipart/form-data">
 			        <label for="productName">상품명</label>
 			        <input type="text" id="productName" name="prodName" placeholder="상품명을 입력하세요" required>
 			
