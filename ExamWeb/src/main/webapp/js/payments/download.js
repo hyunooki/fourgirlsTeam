@@ -121,23 +121,51 @@ document.querySelector('#downloadBtn').addEventListener('click', function(e) {
  
 });
 //다운로드 실행
-function downloadAjax(fileAry=[],payNoAry=[]){
-	console.log(payNoAry)
-	fetch('downloadControl.do?file='+fileAry+'&payNo='+payNoAry)
-	.then(result=> result.json())
-	.then(result=>{
-		
-	   if(result.retCode=='OK'){
-		   document.querySelectorAll("input[type='checkbox']:checked").forEach(checkbox => {
-               checkbox.checked = false;
-           });
-			 swal('파일', "ZIP 파일이 성공적으로 생성되었습니다!", "success");
-			 table.ajax.reload();
-		}else if(result.retCode=='NG'){
-			swal('error', "ZIP 파일 생성 실패 (파일이 없거나 오류 발생)", "error");
-		}else if(result.retCode=='LIMIT'){
-			swal('error', "다운로드 횟수를 초과하였습니다.", "error");
-		}
-	   
-	})
+function downloadAjax(fileAry = [], payNoAry = []) {
+    console.log(payNoAry);
+
+    fetch('downloadControl.do?file=' + fileAry + '&payNo=' + payNoAry)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('서버 오류로 인해 다운로드 실패');
+            }
+            
+            let contentType = response.headers.get("Content-Type");
+            if (contentType && contentType.includes("application/json")) {
+                return response.json();  // JSON 응답 처리 (예: 제한 초과)
+            } else {
+                return response.blob();  // ZIP 파일 처리
+            }
+        })
+        .then(data => {
+            if (data instanceof Blob) {
+                // ZIP 파일 다운로드 처리
+                const url = window.URL.createObjectURL(data);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = "pdf_files.zip";  // 파일 이름 설정
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+
+                // 체크박스 해제
+                document.querySelectorAll("input[type='checkbox']:checked").forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+
+                swal('파일', "ZIP 파일이 성공적으로 다운로드되었습니다!", "success");
+                table.ajax.reload();
+            } else if (data.retCode) {
+                // 서버에서 JSON 응답을 보낸 경우 (예: 제한 초과)
+                if (data.retCode === 'NG') {
+                    swal('error', "ZIP 파일 생성 실패 (파일이 없거나 오류 발생)", "error");
+                } else if (data.retCode === 'LIMIT') {
+                    swal('error', "다운로드 횟수를 초과하였습니다.", "error");
+                }
+            }
+        })
+        .catch(error => {
+            console.error("Download error:", error);
+            swal('error', "다운로드 중 오류가 발생했습니다.", "error");
+        });
 }
