@@ -36,6 +36,7 @@ public class PdfDownloadControl implements Control {
         String[] payNoList = req.getParameterValues("payNo");
         String[] payNoSplitList = payNoList[0].split(",");
 
+        //다운로드 3회이상 발생 시
         PaymentVO param = new PaymentVO();
         for (String payNo : payNoSplitList) {
             param.setUserId(sessionId);
